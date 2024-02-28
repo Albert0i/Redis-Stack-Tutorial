@@ -1,0 +1,6 @@
+
+REDIS_PASSWORD=<your password>
+
+REDIS_HOST=<your host url>
+
+REDIS_PORT=16211
