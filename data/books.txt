@@ -1,3 +1,32 @@
+FT._LIST
+FT.INFO product:index
+
+FT.SEARCH product:index '@price:[-inf 10]'
+FT.SEARCH product:index '@price:[10 30]'
+FT.SEARCH product:index '@count:[(85 (100]'
+FT.SEARCH product:index '@size:{lg}'
+FT.SEARCH product:index '@size:{xs|lg}'
+FT.SEARCH product:index '@colors:{gold}'
+FT.SEARCH product:index '@colors:{gold|red}'
+FT.SEARCH product:index '-@colors:{gold}'
+FT.SEARCH product:index '@title:(mug)'
+FT.SEARCH product:index '@title:(notebook ninja)'
+FT.SEARCH product:index '@title:(notebook|mug)'
+FT.SEARCH product:index '-@title:(notebook|mug)'
+
+
+
+
+
+
+
+
+
+
+# Field and type options
+https://redis.io/docs/interact/search-and-query/basic-constructs/field-and-type-options/
+# Aggregations
+https://redis.io/docs/interact/search-and-query/advanced-concepts/aggregations/
 
 ZADD books NX 1 "The Mystery of Edwin Drood"
 HSET books:1 title "The Mystery of Edwin Drood" rating 8  author "Charles Dickens" blurb "The last and unfinished story the the author"  
