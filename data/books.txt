@@ -1,0 +1,72 @@
+
+ZADD books NX 1 "The Mystery of Edwin Drood"
+HSET books:1 title "The Mystery of Edwin Drood" rating 8  author "Charles Dickens" blurb "The last and unfinished story the the author"  
+
+ZADD books NX 2 "The Complete Tales and Poem"
+HSET books:2 title "The Complete Tales and Poem" rating 9  author "Edgar Allan Poe" blurb "The complete collection of the author"  
+
+ZADD books NX 3 "Frankenstein"
+HSET books:3 title "Frankenstein" rating 7  author "Mary Shelley" blurb "The class horrible fiction"  
+
+ZADD books NX 4 "The Brothers Karamazov"
+HSET books:4 title "The Brothers Karamazov" rating 9  author "Fyodor Dostoyevsky" blurb "The first part the an unfinished story. (1/3)"  
+
+ZADD books NX 5 "The War of the Worlds"
+HSET books:5 title "The War of the Worlds" rating 7  author "H.G. Wells" blurb "The class science fiction of alien invasion"  
+
+ZADD books NX 6 "The Picture of Dorian Gray"
+HSET books:6 title "The Picture of Dorian Gray" rating 7  author "Oscar Wilde" blurb "A class fiction of longevity"  
+
+FT.CREATE books:index:hash 
+    ON HASH 
+    PREFIX 1 books:
+	SCHEMA 
+    title TEXT WEIGHT 5.0
+    rating TAG
+    author TAG
+    blurb TEXT 
+	
+FT.INFO books:index:hash
+FT.SEARCH books:index:hash '@rating:{7|8}'
+FT.SEARCH books:index:hash '@author:{Edgar Allan Poe}'
+FT.SEARCH books:index:hash '@title:(complete)'
+FT.SEARCH books:index:hash '@blurb:(last)'
+FT.SEARCH books:index:hash '@blurb:(the)'
+
+DEL books
+DEL books:1
+DEL books:2
+DEL books:3
+DEL books:4
+DEL books:5
+DEL books:6
+FT.DROPINDEX books:index:hash
+
+
+
+
+
+
+
+
+
+JSON.SET authors:1 $ '{
+    "name": "Brandon Sanderson",
+    "age": 55,
+    "books": [
+        { "title": "The Final Empire", "rating": 10 }, 
+        { "title": "The Way of Kings", "rating": 9 } 
+    ]}'
+
+JSON.GET authors:1
+
+JSON.GET authors:1 $.name
+
+JSON.GET authors:1 $.books
+
+JSON.GET authors:1 $.books[0]
+
+JSON.GET authors:1 $.books[0].title
+JSON.GET authors:1 $.books[0].rating
+
+JSON.SET authors:1 $.books[0].rating 7
