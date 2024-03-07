@@ -14,12 +14,11 @@ FT.SEARCH product:index '@title:(notebook ninja)'
 FT.SEARCH product:index '@title:(notebook|mug)'
 FT.SEARCH product:index '-@title:(notebook|mug)'
 
+FT.AGGREGATE product:index * 
+    GROUPBY 1 @size REDUCE count 0 AS num_size
+    SORTBY 2 @num_size DESC
 
-
-
-
-
-
+FT.AGGREGATE product:index "*" GROUPBY 0 REDUCE count 0 AS total
 
 
 
