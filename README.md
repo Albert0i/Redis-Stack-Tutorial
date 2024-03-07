@@ -1,31 +1,143 @@
 # "Hot boiled beans and butter; walk in and find your supper!"
 
-In the pre-SQL era, database organization and access methods were characterized by hierarchical and network models, flat files, ISAM, and indexed files. These methods had limitations in terms of data independence, flexibility, and scalability. On the other hand, Redis, as a modern data storage and caching system, employs a different set of organization and access methods that offer high performance and flexibility. Let's compare the database organization and access methods of the pre-SQL era with those used in the Redis stack.
+### I. Introduction
+1. FT.CREATE:
+The FT.CREATE command is used to create a new search index in Redisearch. It allows you to define the schema for the index, including the fields and their types. Here's the basic syntax of FT.CREATE:
 
-1. Data Model:
-In the pre-SQL era, hierarchical and network models were primarily used, which imposed rigid structures and limited the flexibility of data representation. In contrast, Redis employs a flexible data model based on key-value pairs. It stores data in a key-value store, where each key is associated with a value. The value can be of various types, including strings, lists, sets, sorted sets, and hashes. This flexible data model allows for versatile data organization and retrieval.
+```
+FT.CREATE index_name [SCHEMA field_name field_type [field_name field_type ...]]
+```
 
-2. Indexing and Querying:
-Pre-SQL era methods often relied on manual indexing or limited indexing capabilities. Indexed files and ISAM introduced indexing structures to improve data access speed but required manual management. However, Redis provides automatic indexing on keys, allowing efficient lookup and retrieval of data based on keys. Redis also supports various commands and data structures for querying and manipulating data, providing a rich set of operations for sorting, filtering, and aggregating data.
+- `index_name` is the name of the index you want to create.
+- `SCHEMA` specifies the schema definition for the index.
+- `field_name` is the name of a field in the index.
+- `field_type` is the type of the field. Redisearch supports various types such as TEXT, NUMERIC, TAG, and more.
 
-3. Performance and Caching:
-The pre-SQL era methods did not emphasize performance optimization or caching mechanisms. In contrast, Redis is specifically designed for high-performance data storage and caching. It stores data primarily in memory, providing rapid access and low latency. Redis also supports data persistence to disk for durability. Additionally, Redis includes advanced features like data replication, sharding, and clustering, enabling horizontal scalability and high availability.
+For example, to create an index named "products" with two fields, "name" of type TEXT and "price" of type NUMERIC, you can use the following command:
 
-4. Data Structures and Operations:
-Pre-SQL era methods typically worked with structured data but lacked support for complex data structures and operations. Redis, on the other hand, provides a wide range of data structures and associated operations beyond simple key-value storage. These include lists, sets, sorted sets, and hashes, with corresponding commands for manipulation and querying. Redis data structures offer powerful features like range queries, set operations, and atomic operations, enabling sophisticated data modeling and analysis.
+```
+FT.CREATE products SCHEMA name TEXT price NUMERIC
+```
 
-5. In-Memory Computing:
-Pre-SQL era methods primarily focused on disk-based storage, which often resulted in slower access times. Redis, however, operates primarily in memory, making it exceptionally fast for data access and retrieval. Its in-memory computing capabilities enable real-time data processing, caching, and high-speed transactions. Redis also supports persistence mechanisms to periodically save data to disk, ensuring data durability while maintaining performance benefits.
+2. FT.SEARCH:
+The FT.SEARCH command is used to search for documents in a Redisearch index. It allows you to perform full-text searches and apply various filters and sorting options. Here's the basic syntax of FT.SEARCH:
 
-6. Scalability and High Availability:
-Pre-SQL era methods had limited options for scaling and ensuring high availability. Redis, on the other hand, offers various mechanisms for scaling and ensuring data availability. Redis provides built-in replication, allowing data to be replicated to multiple Redis instances for increased read scalability and fault tolerance. Additionally, Redis supports sharding, allowing data to be distributed across multiple Redis nodes for horizontal scaling. These features make Redis a robust solution for handling large datasets and achieving high availability.
+```
+FT.SEARCH index_name search_query [option [value] ...]
+```
 
-7. Pub/Sub and Event-Driven Architecture:
-Redis includes a Publish/Subscribe (Pub/Sub) messaging system, which enables event-driven architecture and real-time communication between components. This feature allows applications to subscribe to channels and receive messages when events occur. The Pub/Sub functionality in Redis facilitates the development of scalable and event-driven systems.
+- `index_name` is the name of the index to search.
+- `search_query` is the query string used to match documents.
+- `option` and `value` are optional arguments that can be used to modify the behavior of the search.
 
-In summary, the database organization and access methods of the pre-SQL era were characterized by hierarchical and network models, flat files, ISAM, and indexed files. These methods had limitations in terms of data independence, flexibility, and scalability. In contrast, Redis employs a flexible data model with a key-value store, automatic indexing, and a rich set of data structures and operations. Redis prioritizes performance, in-memory computing, caching, scalability, and high availability. It also includes features like Pub/Sub for event-driven architectures. These characteristics make Redis a modern and powerful solution for data storage, caching, and real-time applications.
+For example, to search for documents in the "products" index that contain the term "apple" in the "name" field, you can use the following command:
 
-compare database organization and access method of pre-SQL era and methods used in Redis Stack in 1000 words.
-(Generated by ChatGPT)
+```
+FT.SEARCH products "apple"
+```
+
+3. FT.AGGREGATE:
+The FT.AGGREGATE command is used to perform aggregations on Redisearch indexes. It allows you to calculate various metrics and apply groupings and reductions to search results. Here's the basic syntax of FT.AGGREGATE:
+
+```
+FT.AGGREGATE index_name search_query aggregation_query
+```
+
+- `index_name` is the name of the index to aggregate.
+- `search_query` is the query string used to match documents.
+- `aggregation_query` defines the aggregations to be performed on the search results.
+
+For example, to calculate the average price of products in the "products" index, you can use the following command:
+
+```
+FT.AGGREGATE products "*" APPLY AVG(@price) as avg_price
+```
+
+This query performs a search on all documents in the "products" index using the "*" wildcard. It then applies the AVG function on the "price" field and aliases the result as "avg_price".
+
+These are the basic explanations of the FT.CREATE, FT.SEARCH, and FT.AGGREGATE commands in Redisearch. They provide powerful functionality for creating and searching full-text indexes and performing aggregations on the indexed data.
+
+
+### II. [FT_CREATE](https://redis.io/commands/ft.create/)
+```
+FT.CREATE index 
+  [ON HASH | JSON] 
+  [PREFIX count prefix [prefix ...]] 
+  [FILTER {filter}]
+  [LANGUAGE default_lang] 
+  [LANGUAGE_FIELD lang_attribute] 
+  [SCORE default_score] 
+  [SCORE_FIELD score_attribute] 
+  [PAYLOAD_FIELD payload_attribute] 
+  [MAXTEXTFIELDS] 
+  [TEMPORARY seconds] 
+  [NOOFFSETS] 
+  [NOHL] 
+  [NOFIELDS] 
+  [NOFREQS] 
+  [STOPWORDS count [stopword ...]] 
+  [SKIPINITIALSCAN]
+  SCHEMA field_name [AS alias] TEXT | TAG | NUMERIC | GEO | VECTOR | GEOSHAPE [ SORTABLE [UNF]] 
+  [NOINDEX] [ field_name [AS alias] TEXT | TAG | NUMERIC | GEO | VECTOR | GEOSHAPE [ SORTABLE [UNF]] [NOINDEX] ...]
+```
+
+
+### III. [FT.SEARC](https://redis.io/commands/ft.search/)
+```
+FT.SEARCH index query 
+  [NOCONTENT] 
+  [VERBATIM] [NOSTOPWORDS] 
+  [WITHSCORES] 
+  [WITHPAYLOADS] 
+  [WITHSORTKEYS] 
+  [FILTER numeric_field min max [ FILTER numeric_field min max ...]] 
+  [GEOFILTER geo_field lon lat radius m | km | mi | ft [ GEOFILTER geo_field lon lat radius m | km | mi | ft ...]] 
+  [INKEYS count key [key ...]] [ INFIELDS count field [field ...]] 
+  [RETURN count identifier [AS property] [ identifier [AS property] ...]] 
+  [SUMMARIZE [ FIELDS count field [field ...]] [FRAGS num] [LEN fragsize] [SEPARATOR separator]] 
+  [HIGHLIGHT [ FIELDS count field [field ...]] [ TAGS open close]] 
+  [SLOP slop] 
+  [TIMEOUT timeout] 
+  [INORDER] 
+  [LANGUAGE language] 
+  [EXPANDER expander] 
+  [SCORER scorer] 
+  [EXPLAINSCORE] 
+  [PAYLOAD payload] 
+  [SORTBY sortby [ ASC | DESC] [WITHCOUNT]] 
+  [LIMIT offset num] 
+  [PARAMS nargs name value [ name value ...]] 
+  [DIALECT dialect]
+```
+
+
+### IV. [FT.AGGREGATE]()
+```
+FT.AGGREGATE
+  {index_name:string}
+  {query_string:string}
+  [VERBATIM]
+  [LOAD {nargs:integer} {property:string} ...]
+  [GROUPBY
+    {nargs:integer} {property:string} ...
+    REDUCE
+      {FUNC:string}
+      {nargs:integer} {arg:string} ...
+      [AS {name:string}]
+    ...
+  ] ...
+  [SORTBY
+    {nargs:integer} {string} ...
+    [MAX {num:integer}] ...
+  ] ...
+  [APPLY
+    {EXPR:string}
+    AS {name:string}
+  ] ...
+  [FILTER {EXPR:string}] ...
+  [LIMIT {offset:integer} {num:integer} ] ...
+  [PARAMS {nargs} {name} {value} ... ]
+```
+
 
 ### EOF (2024/03/07)
