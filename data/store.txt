@@ -111,6 +111,7 @@ FT.CREATE inventory:index
 
 SCAN 0 MATCH inventory:* COUNT 10
 FT._LIST 
+FT.DROPINDEX inventory:index
 
 
 # FT.SEARCH
@@ -134,6 +135,20 @@ FT.SEARCH inventory:index '@colors:{pink|silver}'
 # FT.AGGREGATE 
 # https://redis.io/commands/ft.aggregate/
 # https://redis.io/docs/interact/search-and-query/advanced-concepts/aggregations/
+
+FT.AGGREGATE product:index '*' 
+    GROUPBY 0 REDUCE count 0 AS total
+
+FT.AGGREGATE inventory:index '*' 
+    GROUPBY 1 @name REDUCE count 0 AS name_count
+    SORTBY 2 @name_count DESC
+
+FT.AGGREGATE product:index '@price:[-inf 30]' 
+    GROUPBY 0  REDUCE count 0 AS total
+
+
+
+
 
 
 
