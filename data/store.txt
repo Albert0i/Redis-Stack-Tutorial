@@ -146,6 +146,9 @@ FT.AGGREGATE inventory:index '*'
 FT.AGGREGATE product:index '@price:[-inf 30]' 
     GROUPBY 0  REDUCE count 0 AS total
 
+FT.AGGREGATE inventory:index "*" GROUPBY 1 @category REDUCE AVG 1 @price AS avg_price
+
+
 
 
 
