@@ -1,3 +1,4 @@
+
 JSON.SET inventory:12345 $ '{ 
         "name": "Noise-cancelling Bluetooth headphones",
         "category": "headphone", 
@@ -109,23 +110,30 @@ FT.CREATE inventory:index
          $.regex_pat AS regex_pat TAG SORTABLE
 
 SCAN 0 MATCH inventory:* COUNT 10
-
 FT._LIST 
+
 
 # FT.SEARCH
 # https://redis.io/commands/ft.search/
 
+
 FT.INFO inventory:index
 FT.SEARCH inventory:index '@name:(keyboard)'
+FT.SEARCH inventory:index '-@name:(keyboard wireless)'
 FT.SEARCH inventory:index '@category:{headphone}'
 FT.SEARCH inventory:index '@description:(combo)'
+FT.SEARCH inventory:index '-@wireless:{true}'
+FT.SEARCH inventory:index '@connection:{usb}'
+FT.SEARCH inventory:index '@price:[-inf 50]'
+FT.SEARCH inventory:index '@stock:[52 75]'
+FT.SEARCH inventory:index '@stock:[(52 (75]'
+FT.SEARCH inventory:index '@free_shipping:{true}'
+FT.SEARCH inventory:index '@colors:{pink|silver}'
 
 
-FT.SEARCH inventory:index '@author:{Edgar Allan Poe}'
-FT.SEARCH inventory:index '@title:(complete)'
-FT.SEARCH inventory:index '@blurb:(last)'
-FT.SEARCH inventory:index '@blurb:(the)'
-
+# FT.AGGREGATE 
+# https://redis.io/commands/ft.aggregate/
+# https://redis.io/docs/interact/search-and-query/advanced-concepts/aggregations/
 
 
 
