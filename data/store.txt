@@ -140,8 +140,8 @@ FT.AGGREGATE product:index '*'
     GROUPBY 0 REDUCE count 0 AS total
 
 FT.AGGREGATE inventory:index '*' 
-    GROUPBY 1 @name REDUCE count 0 AS name_count
-    SORTBY 2 @name_count DESC
+    GROUPBY 1 @connection REDUCE count 0 AS connection_count
+    SORTBY 2 @connection_count DESC
 
 FT.AGGREGATE product:index '@price:[-inf 30]' 
     GROUPBY 0  REDUCE count 0 AS total
