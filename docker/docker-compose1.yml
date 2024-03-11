@@ -1,0 +1,19 @@
+services: 
+  redis: 
+    image: 'redis/redis-stack-server:latest' 
+    ports: 
+      - '127.0.0.1:6379:6379/tcp' 
+    volumes: 
+      - '/Users/<dir>/Documents/redis/<some_dir>:/data:rw' 
+    environment: 
+      - REDIS_ARGS = "--save 10 1 --appendonly yes" 
+
+  redisinsight: 
+    image: 'redislabs/redisinsight:latest' 
+    ports: 
+      - '127.0.0.1:8001:8001' 
+
+#
+# Deploying a Redis Stack Cluster using Docker images along with RedisInsight
+# https://medium.com/@joshisoftynakul/deploying-a-redis-stack-cluster-using-docker-images-along-with-redisinsight-e3588f038a40
+#
