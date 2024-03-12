@@ -132,6 +132,9 @@ FT.SEARCH inventory:index '@stock:[52 75]'
 FT.SEARCH inventory:index '@stock:[(52 (75]'
 FT.SEARCH inventory:index '@free_shipping:{true}'
 FT.SEARCH inventory:index '@colors:{pink|silver}'
+# Search for the term "wire" in every TEXT attribute of an index data. 
+FT.SEARCH inventory:index "wire"
+
 
 
 # FT.AGGREGATE 
@@ -160,6 +163,23 @@ FT.AGGREGATE inventory:index "*" GROUPBY 1 @category REDUCE TOLIST 1 "@name" as 
 
 FT.AGGREGATE inventory:index * APPLY "@price * 7.8" as MOP
 FT.AGGREGATE inventory:index * APPLY "@name" APPLY "@price * 7.8" as MOP
+
+# Query data
+# https://redis.io/docs/interact/search-and-query/query/
+FT.AGGREGATE inventory:index "*" LOAD 3 __key name price APPLY "@price-@price*0.1" AS discounted
+
+
+# Combined queries
+# https://redis.io/docs/interact/search-and-query/query/combined/
+FT.SEARCH inventory:index "(keyboard) (wireless)"
+FT.SEARCH inventory:index "(keyboard)|(wireless)"
+FT.SEARCH inventory:index "@name:(keyboard) @price:[0 30]"
+FT.SEARCH inventory:index  "@name:(keyboard) @price:[0 30]" return 3 _key name price
+
+
+
+
+
 
 
 
