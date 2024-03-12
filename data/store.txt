@@ -119,6 +119,8 @@ FT.DROPINDEX inventory:index
 
 
 FT.INFO inventory:index
+FT.SEARCH inventory:index * 
+FT.SEARCH inventory:index * return 3 name category price
 FT.SEARCH inventory:index '@name:(keyboard)'
 FT.SEARCH inventory:index '-@name:(keyboard wireless)'
 FT.SEARCH inventory:index '@category:{headphone}'
@@ -150,11 +152,14 @@ FT.AGGREGATE inventory:index "*" GROUPBY 1 @category REDUCE AVG 1 @price AS avg_
 
 FT.AGGREGATE inventory:index "*" SORTBY 2 @price DESC LIMIT 1 10
 
+FT.AGGREGATE inventory:index * GROUPBY 0 REDUCE COUNT 0
+FT.AGGREGATE inventory:index * GROUPBY 0 REDUCE COUNT_DISTINCT 1 @name as CNT
+FT.AGGREGATE inventory:index * GROUPBY 0 REDUCE COUNT_DISTINCT 2 @name @category as CNT
 
+FT.AGGREGATE inventory:index "*" GROUPBY 1 @category REDUCE TOLIST 1 "@name" as productList
 
-
-
-
+FT.AGGREGATE inventory:index * APPLY "@price * 7.8" as MOP
+FT.AGGREGATE inventory:index * APPLY "@name" APPLY "@price * 7.8" as MOP
 
 
 
