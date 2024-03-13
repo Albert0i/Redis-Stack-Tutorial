@@ -25,7 +25,7 @@ In addition, Redis provides a rich set of data structures besides *key-value pai
 
 > Redis has been designed to offer an alternative for problems where relational databases (RDBMSs) are not a good fit because there is something wrong if we use an RDBMS for all kinds of work. However, in comparison to other data storage options that became popular when the NoSQL wave shook the world of databases (Memcached, the key-value data store released in 2003, or MongoDB, the document store released in 2009, and many more), Redis has its roots in computer science and makes a rich variety of data structures available. This is one of the distinguishing features of Redis and the likely reason that fostered its adoption by software engineers and developers – presenting data structures such as hashes, lists, sets, bitmaps, and so on that are familiar to software engineers so they could transfer the programming logic to data modeling without any lengthy and computationally expensive data transformation. Viewed in this light, we could say that Redis is about persisting the data structures of a programming language.
 
-IHMO, MongoDB competes with SQL Server; while Redis Stack compete with time and efficiency on it's own. 
+IHMO, MongoDB is rival to relational database, while Redis Stack competes for time and efficiency on it's own. 
 
 
 ### II.  [RedisJSON](https://github.com/RedisJSON/RedisJSON)
@@ -163,9 +163,28 @@ FT.SEARCH index query
 Search the index with a textual query, returning either documents or just ids
 
 ```
+FT.INFO inventory:index
+FT.SEARCH inventory:index * 
+FT.SEARCH inventory:index * return 3 name category price
+FT.SEARCH inventory:index '@name:(keyboard)'
+FT.SEARCH inventory:index '-@name:(keyboard wireless)'
+FT.SEARCH inventory:index '@category:{headphone}'
+FT.SEARCH inventory:index '@description:(combo)'
+FT.SEARCH inventory:index '-@wireless:{true}'
+FT.SEARCH inventory:index '@connection:{usb}'
+FT.SEARCH inventory:index '@price:[-inf 50]'
+FT.SEARCH inventory:index '@stock:[52 75]'
+FT.SEARCH inventory:index '@stock:[(52 (75]'
+FT.SEARCH inventory:index '@free_shipping:{true}'
+FT.SEARCH inventory:index '@colors:{pink|silver}'
 
-
+FT.SEARCH inventory:index "wire"
+FT.SEARCH inventory:index "(keyboard) (wireless)"
+FT.SEARCH inventory:index "(keyboard)|(wireless)"
+FT.SEARCH inventory:index "@name:(keyboard) @price:[0 30]"
+FT.SEARCH inventory:index  "@name:(keyboard) @price:[0 30]" return 3 _key name price
 ```
+
 
 ### IV. [Aggregation](https://redis.io/docs/interact/search-and-query/advanced-concepts/aggregations/)
 
@@ -193,7 +212,11 @@ FT.AGGREGATE bicycle:index *
     LIMIT 0 10 
 ```
 
-### V. Reference
+### V. Summary 
+In summary, the MongoDB aggregation pipeline is a comprehensive and feature-rich framework for versatile data transformations and aggregations across collections, while Redis Stack's `FT.AGGREGATE` focuses on basic aggregations within the context of full-text search, leveraging Redisearch's capabilities. The choice between the two depends on the specific requirements of your application and whether full-text search is a primary consideration.
+
+
+### VI. Reference
 1. [Redis Stack Tutorial](https://youtu.be/McPR39mkp7w)
 2. [Redis Stack for Application Modernization](https://www.amazon.com/Redis-Stack-Application-Modernization-applications/dp/1837638187)
 3. [The Mystery of Edwin Drood](https://www.gutenberg.org/cache/epub/564/pg564-images.html)
