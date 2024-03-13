@@ -6,10 +6,10 @@
 > Time was when travel-stained pilgrims rode in clattering parties through the city’s welcome shades; time is when wayfarers, leading a gipsy life between haymaking time and harvest, ...
 
 ### I. Variation is invariant 
-Ever since I made acquaintance with relational databases, things were kept in well organized hierarchy, ie. database, schema, table, record, field... line by line and step by step along the way from top to down. Tables were *normalized*, indexes were extensively built to enforce *constraints* and further speed up file access. The power of aggregation it evinced was so unparalleled as to make all competitors tumbled. All in all, everything was kept tidy and clean. Very well, home sweet home... 
+Ever since I made acquaintance with relational databases, things were kept in a well organized hierarchy, ie. database, schema, table, record, field... line by line and step by step along the way from top to down. Tables were *normalized*, indexes were extensively built to enforce *constraints* and further speed up file access. The power of aggregation it evinced was so unparalleled as to make all competitors tumbled. All in all, everything was kept tidy and clean. Very well, home sweet home... 
 ![alt phpMyAdmin](img/phpMyAdmin.JPG)
 
-Two decades have passed since then... When I first scratched [MongoDB](https://www.mongodb.com/), similar hierarchy vaguely emerges, ie. database, collection, document, roperties... etc. Instead of rigid rows of data, a more flexible JSON format is adopted to enable array of properties and embedded objects. Aggregation is done differently, advanced and comprehensive functions are provided. 
+Two decades have passed since then... When I first scratched [MongoDB](https://www.mongodb.com/), similar hierarchy vaguely emerges, ie. database, collection, document, property... etc. Instead of rigid rows of data, a more flexible JSON format is adopted to enable array of properties and embedded objects. Aggregation is done differently, advanced and comprehensive functions are provided. 
 ![alt MongoDB Compass](img/MongoDB_Compass.JPG)
 
 Later on, I come access [Redis Stack](https://redis.io/docs/about/about-stack/), a new species from the NoSQL family, almost makes me faint: Everything was kept on top-level. By keeping everything on the top level, a constant access time through primary keys is attained. The simplicity and speed have made it a popular choice for applications that require fast and efficient data access. 
