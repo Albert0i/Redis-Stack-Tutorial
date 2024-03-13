@@ -12,7 +12,7 @@ Ever since I made acquaintance with relational databases, things were kept in a 
 Two decades have passed since then... When I first scratched [MongoDB](https://www.mongodb.com/), similar hierarchy vaguely emerges, ie. database, collection, document, property... etc. Instead of rigid rows of data, a more flexible JSON format is adopted to enable array of properties and embedded objects. Aggregation is done differently, advanced and comprehensive functions are provided. 
 ![alt MongoDB Compass](img/MongoDB_Compass.JPG)
 
-Later on, I come access [Redis Stack](https://redis.io/docs/about/about-stack/), a new species from the NoSQL family, almost makes me faint: Everything was kept on top-level. By keeping everything on the top level, a constant access time through primary keys is attained. The simplicity and speed have made it a popular choice for applications that require fast and efficient data access. 
+Later on, I come access [Redis Stack](https://redis.io/docs/about/about-stack/), a new species from NoSQL family, almost makes me faint: Everything was kept on top-level. By keeping everything on the top level, a constant access time through primary keys is attained. The simplicity and speed have made it a popular choice for applications that require fast and efficient data access. 
 ![alt RedisInsight](img/RedisInsight.JPG)
 
 In addition, Redis provides a rich set of data structures besides *key-value pairs*, such as *lists*, *sets*, *sorted sets*, *hashes*. These data structures offer efficient and flexible storage and retrieval of data, use cases are caching, session management, real-time analytics, and job queues.
