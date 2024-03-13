@@ -200,6 +200,14 @@ FT.SEARCH inventory:index  "@name:(keyboard) @price:[0 30]" return 3 _key name p
 | Aggregation | SELECT condition, AVG(price) AS avg_price FROM bicycles GROUP BY condition | FT.AGGREGATE idx:bicycle "*" GROUPBY 1 @condition REDUCE AVG 1 @price AS avg_price |
 
 ```
+SELECT condition, count(*) AS num, sum(price) AS money
+FROM bicycles 
+GROUP BY condition
+ORDER BY 2
+OFFSET 0 LIMIT 10 
+```
+
+```
 FT.AGGREGATE bicycle:index * 
     LOAD 3 __key brand model     
     APPLY 'format("%s-%s", @brand, @model)' AS name     
