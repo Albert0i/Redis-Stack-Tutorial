@@ -8,12 +8,15 @@
 
 ### I. Variation is invariant 
 Ever since I made acquaintance with relational databases, things were kept in a well organized hierarchy, ie. database, schema, table, record, field... line by line and step by step along the way from top to down. Tables were *normalized*, indexes were extensively built to enforce *constraints* and further speed up file access. The power of aggregation it evinced was so unparalleled as to make all competitors tumbled down instantaneously. All in all, everything was tidy and clean. All went well... 
+
 ![alt phpMyAdmin](img/phpMyAdmin.JPG)
 
 Three decades have passed since then... When I first scratched [MongoDB](https://www.mongodb.com/), similar hierarchy vaguely emerges from my soul, ie. database, collection, document, property... etc. Instead of grid of rigid rows, a more elastic JSON format is employed to enable property of array and embedded objects. [Aggregation](https://github.com/Albert0i/MongoDB-aggregation-pipeline/blob/main/README.md) can be devised ingeniously to pair with relational database, comprehensive and advanced are provided. 
+
 ![alt MongoDB Compass](img/MongoDB_Compass.JPG)
 
 Of late, I come access [Redis Stack](https://redis.io/docs/about/about-stack/), which is a new species from NoSQL family, makes me petrified and almost Loss of consciousness: **Everything iss kept on top-level**. The reason is obvious, by keeping them on the top level, a constant access time through primary keys is attained. This simplicity and speed have made it a popular choice for applications that require fast and efficient data access. 
+
 ![alt RedisInsight](img/RedisInsight.JPG)
 
 In addition, Redis provides a rich set of data structures besides *key-value pairs*, such as *lists*, *sets*, *sorted sets*, *hashes*. These data structures offer efficient and flexible storage and retrieval of data. Use cases are caching, session management, real-time analytics, and job queues. 
