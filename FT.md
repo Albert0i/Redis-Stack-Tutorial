@@ -6,7 +6,7 @@
 > Time was when travel-stained pilgrims rode in clattering parties through the city’s welcome shades; time is when wayfarers, leading a gipsy life between haymaking time and harvest, ... [more](https://www.gutenberg.org/cache/epub/564/pg564-images.html#chap19)
 
 
-### I. Variation 
+### I. Variation is invariant 
 Ever since I made acquaintance with relational databases, things were kept in a well organized hierarchy, ie. database, schema, table, record, field... line by line and step by step along the way from top to down. Tables were *normalized*, indexes were extensively built to enforce *constraints* and further speed up file access. The power of aggregation it evinced was so unparalleled as to make all competitors tumbled down instantaneously. All in all, everything was tidy and clean. All went well... 
 
 ![alt phpMyAdmin](img/phpMyAdmin.JPG)
@@ -29,6 +29,8 @@ IHMO, MongoDB competes with SQL Server; while Redis Stack compete with time and 
 
 
 ### II.  [RedisJSON](https://github.com/RedisJSON/RedisJSON)
+> RedisJSON is a Redis module that implements ECMA-404 The JSON Data Interchange Standard as a native data type. It allows storing, updating and fetching JSON values from Redis keys (documents).
+
 
 ### III. [RediSearch](https://github.com/RediSearch/RediSearch)
 > However, if in addition to the ability to use core data structures to store the data, we ensure that fast searches can be performed (besides primary key lookup), it is possible to think beyond the basic caching use case and start looking at Redis as a full-fledged database, capable of high-speed searches.
