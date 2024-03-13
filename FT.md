@@ -20,7 +20,7 @@ In addition, Redis provides a rich set of data structures besides *key-value pai
 
 ---
 
-IHMO, MongoDB competes with SQL Server; while Redis Stack compete time and effiency on it's own. 
+IHMO, MongoDB competes with SQL Server; while Redis Stack compete with time and efficiency on it's own. 
 
 
 ### II. [Query data](https://redis.io/docs/interact/search-and-query/query/)
