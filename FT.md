@@ -31,6 +31,47 @@ IHMO, MongoDB competes with SQL Server; while Redis Stack compete with time and 
 ### II.  [RedisJSON](https://github.com/RedisJSON/RedisJSON)
 > RedisJSON is a Redis module that implements ECMA-404 The JSON Data Interchange Standard as a native data type. It allows storing, updating and fetching JSON values from Redis keys (documents).
 
+#### 1. [JSON.SET](https://redis.io/commands/json.set/)
+```
+JSON.SET key path value [NX | XX]
+```
+Set the JSON value at path in key. 
+
+```
+JSON.SET inventory:12345 $ '{ 
+        "name": "Noise-cancelling Bluetooth headphones",
+        "category": "headphone", 
+        "description": "Wireless Bluetooth headphones with noise-cancelling technology",
+        "wireless": true,
+        "connection": "Bluetooth",
+        "price": 78.99,
+        "stock": 25,
+        "free-shipping": true,
+        "colors": [
+          "black",
+          "silver",
+          "pink"
+        ]
+    }' 
+```
+
+```
+JSON.SET "bicycle:0" "." "{\"pickup_zone\": \"POLYGON((-74.0610 40.7578, -73.9510 40.7578, -73.9510 40.6678, -74.0610 40.6678, -74.0610 40.7578))\", \"store_location\": \"-74.0060,40.7128\", \"brand\": \"Velorim\", \"model\": \"Jigger\", \"price\": 270, \"description\": \"Small and powerful, the Jigger is the best ride for the smallest of tikes! This is the tiniest kids\\u2019 pedal bike on the market available without a coaster brake, the Jigger is the vehicle of choice for the rare tenacious little rider raring to go.\", \"condition\": \"new\"}"
+```
+
+#### 2. [JSON.GET](https://redis.io/commands/json.get/)
+```
+JSON.GET key [INDENT indent] [NEWLINE newline] [SPACE space] [path
+  [path ...]]
+```
+Return the value at path in JSON serialized form. 
+
+```
+JSON.GET inventory:12345
+
+JSON.GET "bicycle:0"
+```
+
 
 ### III. [RediSearch](https://github.com/RediSearch/RediSearch)
 > However, if in addition to the ability to use core data structures to store the data, we ensure that fast searches can be performed (besides primary key lookup), it is possible to think beyond the basic caching use case and start looking at Redis as a full-fledged database, capable of high-speed searches.
@@ -39,6 +80,92 @@ IHMO, MongoDB competes with SQL Server; while Redis Stack compete with time and 
 
 > RediSearch is a Redis module that provides querying, secondary indexing, and full-text search for Redis. To use RediSearch, you first declare indexes on your Redis data. You can then use the RediSearch query language to query that data.
 
+#### 1. [FT.CREATE](https://redis.io/commands/ft.create/)
+```
+FT.CREATE index 
+  [ON HASH | JSON] 
+  [PREFIX count prefix [prefix ...]] 
+  [FILTER {filter}]
+  [LANGUAGE default_lang] 
+  [LANGUAGE_FIELD lang_attribute] 
+  [SCORE default_score] 
+  [SCORE_FIELD score_attribute] 
+  [PAYLOAD_FIELD payload_attribute] 
+  [MAXTEXTFIELDS] 
+  [TEMPORARY seconds] 
+  [NOOFFSETS] 
+  [NOHL] 
+  [NOFIELDS] 
+  [NOFREQS] 
+  [STOPWORDS count [stopword ...]] 
+  [SKIPINITIALSCAN]
+  SCHEMA field_name [AS alias] TEXT | TAG | NUMERIC | GEO | VECTOR | GEOSHAPE [ SORTABLE [UNF]] 
+  [NOINDEX] [ field_name [AS alias] TEXT | TAG | NUMERIC | GEO | VECTOR | GEOSHAPE [ SORTABLE [UNF]] [NOINDEX] ...]
+```
+Create an index with the given specification. For usage, see [Examples](https://redis.io/commands/ft.create/#examples).
+
+```
+FT.CREATE inventory:index
+  ON JSON 
+  PREFIX 1 inventory:
+  SCHEMA $.name AS name TEXT SORTABLE 
+         $.category AS category TAG SORTABLE 
+         $.description AS description TEXT
+         $.wireless AS wireless TAG SORTABLE 
+         $.connection AS connection TAG SORTABLE
+         $.price AS price NUMERIC SORTABLE
+         $.stock AS stock NUMERIC SORTABLE
+         $.free-shipping AS free_shipping TAG SORTABLE
+         $.colors AS colors TAG SEPARATOR "," SORTABLE
+         $.regex_pat AS regex_pat TAG SORTABLE
+```
+
+```
+FT.CREATE bicycle:index ON 
+    JSON PREFIX 1 bicycle: SCORE 1.0 SCHEMA 
+    $.pickup_zone AS pickup_zone GEOSHAPE 
+    $.store_location AS store_location GEO 
+    $.brand AS brand TAG 
+    $.model AS model TAG 
+    $.description AS description TEXT WEIGHT 1.0 
+    $.price AS price NUMERIC 
+    $.condition AS condition TAG SEPARATOR , 
+
+```
+
+#### 2. [FT.SEARCH](https://redis.io/commands/ft.search/)
+```
+FT.SEARCH index query 
+  [NOCONTENT] 
+  [VERBATIM] [NOSTOPWORDS] 
+  [WITHSCORES] 
+  [WITHPAYLOADS] 
+  [WITHSORTKEYS] 
+  [FILTER numeric_field min max [ FILTER numeric_field min max ...]] 
+  [GEOFILTER geo_field lon lat radius m | km | mi | ft [ GEOFILTER geo_field lon lat radius m | km | mi | ft ...]] 
+  [INKEYS count key [key ...]] [ INFIELDS count field [field ...]] 
+  [RETURN count identifier [AS property] [ identifier [AS property] ...]] 
+  [SUMMARIZE [ FIELDS count field [field ...]] [FRAGS num] [LEN fragsize] [SEPARATOR separator]] 
+  [HIGHLIGHT [ FIELDS count field [field ...]] [ TAGS open close]] 
+  [SLOP slop] 
+  [TIMEOUT timeout] 
+  [INORDER] 
+  [LANGUAGE language] 
+  [EXPANDER expander] 
+  [SCORER scorer] 
+  [EXPLAINSCORE] 
+  [PAYLOAD payload] 
+  [SORTBY sortby [ ASC | DESC] [WITHCOUNT]] 
+  [LIMIT offset num] 
+  [PARAMS nargs name value [ name value ...]] 
+  [DIALECT dialect]
+```
+Search the index with a textual query, returning either documents or just ids
+
+```
+
+
+```
 
 ### IV. [Aggregation](https://redis.io/docs/interact/search-and-query/advanced-concepts/aggregations/)
 
