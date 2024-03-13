@@ -37,6 +37,8 @@ IHMO, MongoDB competes with SQL Server; while Redis Stack compete with time and 
 
 > Redis Stack complements Redis with the ability to create secondary indexes on Hashes or JSON documents, the two document types supported by Redis Stack. The search examples seen so far can be resolved with the indexing features.
 
+> RediSearch is a Redis module that provides querying, secondary indexing, and full-text search for Redis. To use RediSearch, you first declare indexes on your Redis data. You can then use the RediSearch query language to query that data.
+
 
 ### IV. [Aggregation](https://redis.io/docs/interact/search-and-query/advanced-concepts/aggregations/)
 
