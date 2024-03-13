@@ -6,7 +6,7 @@
 > Time was when travel-stained pilgrims rode in clattering parties through the city’s welcome shades; time is when wayfarers, leading a gipsy life between haymaking time and harvest, ... [more](https://www.gutenberg.org/cache/epub/564/pg564-images.html#chap19)
 
 
-### I. Variation is invariant 
+### I. Variation 
 Ever since I made acquaintance with relational databases, things were kept in a well organized hierarchy, ie. database, schema, table, record, field... line by line and step by step along the way from top to down. Tables were *normalized*, indexes were extensively built to enforce *constraints* and further speed up file access. The power of aggregation it evinced was so unparalleled as to make all competitors tumbled down instantaneously. All in all, everything was tidy and clean. All went well... 
 
 ![alt phpMyAdmin](img/phpMyAdmin.JPG)
@@ -28,13 +28,15 @@ In addition, Redis provides a rich set of data structures besides *key-value pai
 IHMO, MongoDB competes with SQL Server; while Redis Stack compete with time and efficiency on it's own. 
 
 
-### II. [Query data](https://redis.io/docs/interact/search-and-query/query/)
+### II.  [RedisJSON](https://github.com/RedisJSON/RedisJSON)
+
+### III. [RediSearch](https://github.com/RediSearch/RediSearch)
 > However, if in addition to the ability to use core data structures to store the data, we ensure that fast searches can be performed (besides primary key lookup), it is possible to think beyond the basic caching use case and start looking at Redis as a full-fledged database, capable of high-speed searches.
 
 > Redis Stack complements Redis with the ability to create secondary indexes on Hashes or JSON documents, the two document types supported by Redis Stack. The search examples seen so far can be resolved with the indexing features.
 
 
-### II. [Aggregation](https://redis.io/docs/interact/search-and-query/advanced-concepts/aggregations/)
+### IV. [Aggregation](https://redis.io/docs/interact/search-and-query/advanced-concepts/aggregations/)
 
 ![alt aggregation pipeline](img/Pipeline%20-%20DO%20NOT%20CHANGE.png)
 
@@ -60,7 +62,7 @@ FT.AGGREGATE bicycle:index *
     LIMIT 0 10 
 ```
 
-### IV. Reference
+### V. Reference
 1. [Redis Stack Tutorial](https://youtu.be/McPR39mkp7w)
 2. [Redis Stack for Application Modernization](https://www.amazon.com/Redis-Stack-Application-Modernization-applications/dp/1837638187)
 3. [The Mystery of Edwin Drood](https://www.gutenberg.org/cache/epub/564/pg564-images.html)
