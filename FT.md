@@ -7,7 +7,7 @@
 
 
 ### I. Variation is invariant 
-Ever since I made acquaintance with [relational databases](https://lc.fie.umich.mx/~rodrigo/BD/An%20Introduction%20to%20Database%20Systems%208e%20By%20C%20J%20Date.pdf), things were kept in a well organized hierarchy, ie. database, schema, table, record, field... line by line and step by step along the way from top to down. Tables were *normalized*, indexes were extensively built to enforce *constraints* and to further speed up file access. The power of table joining and aggregation it evinced was so unparalleled as to make all competitors tumbled down instantaneously. Various [RDBMS](https://www.oracle.com/database/what-is-a-relational-database/) artefact quickly populated and successfully dominated the computing world thenceforth. 
+Ever since I made acquaintance with [relational databases](https://lc.fie.umich.mx/~rodrigo/BD/An%20Introduction%20to%20Database%20Systems%208e%20By%20C%20J%20Date.pdf), things were kept in a well organized hierarchy, ie. database, schema, table, row, field... line by line and step by step along the way from top to down. Tables were *normalized*, indexes were extensively built to enforce *constraints* and to further speed up file access. The power of table joining and aggregation it evinced was so unparalleled as to make all competitors tumbled down instantaneously. Various [RDBMS](https://www.oracle.com/database/what-is-a-relational-database/) artefact quickly populated and successfully dominated the computing world thenceforth. 
 
 ![alt phpMyAdmin](img/phpMyAdmin.JPG)
 
