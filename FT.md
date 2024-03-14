@@ -7,7 +7,7 @@
 
 
 ### I. Variation is invariant 
-Ever since I made acquaintance with relational databases, things were kept in a well organized hierarchy, ie. database, schema, table, record, field... line by line and step by step along the way from top to down. Tables were *normalized*, indexes were extensively built to enforce *constraints* and further speed up file access. The power of aggregation it evinced was so unparalleled as to make all competitors tumbled down instantaneously. All in all, everything was tidy and clean. All went well... 
+Ever since I made acquaintance with [relational databases](https://lc.fie.umich.mx/~rodrigo/BD/An%20Introduction%20to%20Database%20Systems%208e%20By%20C%20J%20Date.pdf), things were kept in a well organized hierarchy, ie. database, schema, table, record, field... line by line and step by step along the way from top to down. Tables were *normalized*, indexes were extensively built to enforce *constraints* and to further speed up file access. The power of table joining and aggregation it evinced was so unparalleled as to make all competitors tumbled down instantaneously. Various [RDBMS](https://www.oracle.com/database/what-is-a-relational-database/) artefact quickly populated and successfully dominated the computing world thenceforth. 
 
 ![alt phpMyAdmin](img/phpMyAdmin.JPG)
 
@@ -230,11 +230,13 @@ How does MongoDB aggregation pipeline differs from those in Redis Stack FT.AGGRE
 ### VI. Reference
 1. [Redis Stack Tutorial](https://youtu.be/McPR39mkp7w)
 2. [Redis Stack for Application Modernization](https://www.amazon.com/Redis-Stack-Application-Modernization-applications/dp/1837638187)
-3. [The Mystery of Edwin Drood](https://www.gutenberg.org/cache/epub/564/pg564-images.html)
+3. [Caching Slow Database Queries with Node.js and Redis](https://youtu.be/krSgKN-5DHs?list=PL83Wfqi-zYZHtpd4Glbj-NBIz7RB0Jw5u)
+4. [Querying, Indexing, and Full-text Search in Redis](https://youtu.be/infTV4ifNZY?list=PL83Wfqi-zYZHtpd4Glbj-NBIz7RB0Jw5u)
+5. [The Mystery of Edwin Drood](https://www.gutenberg.org/cache/epub/564/pg564-images.html)
 
 
 ### Epilogue
 > Abstract thought has formed the basis of innovation and creativity throughout human existence, and can therefore be seen as one of humanity’s most characteristic defining features. [more](https://bc805.medium.com/abstract-thought-how-is-it-significant-and-how-does-it-define-the-basis-for-modern-humanity-a98a5b92fb9f)
 
 
-### EOF (2024/03/13)
+### EOF (2024/03/15)
