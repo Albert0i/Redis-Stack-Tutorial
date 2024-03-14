@@ -15,7 +15,7 @@ Three decades have passed since then... When I first scratched [MongoDB](https:/
 
 ![alt MongoDB Compass](img/MongoDB_Compass.JPG)
 
-Of late, I came across [Redis Stack](https://redis.io/docs/about/about-stack/), which was a new species from [NoSQL](https://www.mongodb.com/nosql-explained) family, that made me petrified and almost Loss of consciousness: **Everything iss kept on top-level**. The reason is obvious, by keeping them on the top level, a constant access time through primary keys is attained. This simplicity and speed have made it a popular choice for applications that require fast and efficient data access. 
+Of late, I came across [Redis Stack](https://redis.io/docs/about/about-stack/), which was a new species from [NoSQL](https://www.mongodb.com/nosql-explained) family, that made me petrified and almost Loss of consciousness: **Everything is kept on top-level**. The reason is obvious, by keeping them on the top level, a constant access time through primary keys is attained. This simplicity and speed have made it a popular choice for applications that require fast and efficient data access. 
 
 ![alt RedisInsight](img/RedisInsight.JPG)
 
