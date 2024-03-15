@@ -52,6 +52,21 @@ The colon (:) character is commonly used as a delimiter in Redis key nomenclatur
 
 While colons are a common choice for delimiters in Redis key nomenclature, you can also use other delimiters like dots (.), dashes (-), or any other character that suits your naming conventions and requirements. The key is to choose a delimiter that clearly separates different components of the key and aligns with the organization and readability of your data.
 
+clear
+flushdb
+set student:1:name alberto
+set student:1:age 18
+scan 0 match student:* 
+type student:1:age
+incrby student:1:age 10
+get student:1:age 
+del student:1:age
+keys *
+select 1
+keys *
+
+
+
 ### II. [RedisJSON](https://github.com/RedisJSON/RedisJSON)
 
 
