@@ -26,6 +26,31 @@ The reason is simple, by keeping everything on the top level, a constant access 
 
 > Redis Stack is an extension of Redis presented in 2022, which introduces JSON, vector, and time series data modeling capabilities, all supporting real-time queries and searches. Redis Stack represents a new approach to providing a rich data modeling experience all within the same database server. It introduces features such as vector similarity search to query structured and unstructured data (for example, text, images, or audio files) and delivers probabilistic Bloom filters to efficiently resolve recurrent big data problems. Redis Stack is also a data platform that supports event-driven programming and introduces stream processing features
 
+The colon (:) character is commonly used as a delimiter in Redis key nomenclature to separate different parts or levels of the key. Here are a few reasons why colons are used:
+
+1. **Hierarchical Organization**: Colons can be used to create a hierarchical structure in key names. Each segment separated by a colon represents a different level or category of the key. This helps in organizing related keys and establishing a logical hierarchy.
+
+   Example: `user:123:name`
+   - "user" is the top-level namespace or category.
+   - "123" represents a specific user ID.
+   - "name" indicates the purpose of the stored data.
+
+2. **Namespace Separation**: Colons can be used to distinguish different namespaces or categories of keys. By using a common prefix followed by a colon, you can group related keys together and avoid naming conflicts.
+
+   Example: `cache:user:123:name`
+   - "cache" represents the namespace for caching related keys.
+   - "user" indicates the category or type of data being cached.
+   - "123" represents a specific user ID.
+   - "name" specifies the purpose of the cached data.
+
+3. **Readability and Clarity**: Colons enhance the readability and clarity of key names. They act as visual separators, making it easier to identify different parts or elements within a key and understand its structure without additional context.
+
+   Example: `order:123:status`
+   - "order" indicates the category or type of data.
+   - "123" represents a specific order ID.
+   - "status" specifies the purpose of the stored data.
+
+While colons are a common choice for delimiters in Redis key nomenclature, you can also use other delimiters like dots (.), dashes (-), or any other character that suits your naming conventions and requirements. The key is to choose a delimiter that clearly separates different components of the key and aligns with the organization and readability of your data.
 
 ### II. [RedisJSON](https://github.com/RedisJSON/RedisJSON)
 
