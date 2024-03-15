@@ -10,21 +10,33 @@
 ### I. Metamorphosis
 [Relational database](https://lc.fie.umich.mx/~rodrigo/BD/An%20Introduction%20to%20Database%20Systems%208e%20By%20C%20J%20Date.pdf), being the dominant means in morden computing society during the past few decades, much adversely to it's optimistic anticipation, confronts with palpable menace of [NoSQL](https://www.mongodb.com/nosql-explained), which is increasingly used in big data and real-time web/mobile applications. The fact that mainstream RDBMS such as [Oracle](https://www.oracle.com/database/), [MySQL](https://www.mysql.com/) and [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-2022) starts to support [JSON Data Types](https://www.w3schools.com/js/js_json_datatypes.asp), reconfirms the impending necessity of storing, retrieving as well as processing JSON data. 
 
-We have been taught to organize things in hierarchy since early childhood, which embodies a certain level of *abstraction*. Commanding over RDBMS, we could see schema, table, row, field all the way down from top to bottom; similarly we could see schema, collection, document, property in NoSQL counterpart. 
+We have been taught to organize things in hierarchy since early childhood, which embodies a certain level of *abstraction*. Commanding over RDBMS, we could see schema, table, row, field all the way down from top to bottom.
 
 ![alt - phyMyAdmin](img/phpMyAdmin.JPG)
+
+Similarly we could see schema, collection, document, property in NoSQL counterpart. 
+
 ![alt - MongoDB Compass](img/MongoDB_Compass.JPG)
+
+
+
 ![alt - RedisInsight](img/RedisInsight.JPG)
+
 
 ### II. [RedisJSON](https://github.com/RedisJSON/RedisJSON)
 
+
 ### III. [RediSearch](https://github.com/RediSearch/RediSearch)
+
 
 ### IV. [Aggregation](https://redis.io/docs/interact/search-and-query/advanced-concepts/aggregations/) 
 
+
 ### V. Command summary
 
+
 ### VI. Introspection 
+
 
 ### VII. Reference
 1. [Redis Stack Tutorial](https://youtu.be/McPR39mkp7w)
