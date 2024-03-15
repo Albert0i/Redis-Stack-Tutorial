@@ -61,6 +61,31 @@ RDBMS support large amount of datatypes, this mainly regards to data storage. On
 
 
 ### II. [RedisJSON](https://github.com/RedisJSON/RedisJSON)
+Flat JSON object can be stored in hash using [HSET](https://redis.io/commands/hset/): 
+```
+HSET books:1 title "The Mystery of Edwin Drood" rating 8  author "Charles Dickens" blurb "The last and unfinished story the the author"  
+HSET books:2 title "The Complete Tales and Poem" rating 9  author "Edgar Allan Poe" blurb "The complete collection of the author"  
+HSET books:4 title "The Brothers Karamazov" rating 9  author "Fyodor Dostoyevsky" blurb "The first part the an unfinished story. (1/3)"  
+```
+
+But there is a catch, you can't have numberic, boolean, array field and embedded object. This greatly impedes the usability. To store real JSON object, you need RedisJSON module installed. 
+```
+JSON.SET inventory:12345 $ '{ 
+        "name": "Noise-cancelling Bluetooth headphones",
+        "category": "headphone", 
+        "description": "Wireless Bluetooth headphones with noise-cancelling technology",
+        "wireless": true,
+        "connection": "Bluetooth",
+        "price": 78.99,
+        "stock": 25,
+        "free-shipping": true,
+        "colors": [
+          "black",
+          "silver",
+          "pink"
+        ]
+    }' 
+```
 
 
 ### III. [RediSearch](https://github.com/RediSearch/RediSearch)
