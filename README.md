@@ -22,7 +22,7 @@ In a word, [Redis Stack](https://redis.io/docs/about/about-stack/), backed by [R
 
 ![alt - RedisInsight](img/RedisInsight.JPG)
 
-The reason is simple, by keeping everything on the top level, a constant access time is attained using primary key access, this make Redis a good candidate for application which requires extremely fast response time. In addition to key-value pair, Redis provides abundant data structures such as list, set, sorted set, hash etc. Add on RediJSON module enables manipulation of JSON objects effectively; RediSearch module enables searching complex JSON objects using secondary index, which renders a tremendous utility boost and virtually evolves towards a full-fledged multi-model database. 
+The reason is simple, by keeping everything on the top level, a constant access time is attained using primary key access, this make Redis a good candidate for application which requires extremely fast response time. In addition to *key-value pair*, Redis provides abundant data structures such as *list*, *set*, *sorted set*, *hash* etc. Add on RediJSON module enables manipulation of JSON objects effectively; RediSearch module enables searching complex JSON objects using secondary index, which renders a tremendous utility boost and virtually evolves towards a full-fledged multi-model database. 
 
 By default, redis store all value in string format, even though you can perform numeric operation on them. 
 ![alt redis-cli](img/redis-cli.JPG)
