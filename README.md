@@ -18,7 +18,9 @@ Similarly we could see schema, collection, document, property in NoSQL counterpa
 
 ![alt - MongoDB Compass](img/MongoDB_Compass.JPG)
 
+Simply put, [Redis Stack](https://redis.io/docs/about/about-stack/), backed by [Redis](https://redis.io/), is a promising new species of NoSQL family. 
 
+> Redis Stack is an extension of Redis presented in 2022, which introduces JSON, vector, and time series data modeling capabilities, all supporting real-time queries and searches. Redis Stack represents a new approach to providing a rich data modeling experience all within the same database server. It introduces features such as vector similarity search to query structured and unstructured data (for example, text, images, or audio files) and delivers probabilistic Bloom filters to efficiently resolve recurrent big data problems. Redis Stack is also a data platform that supports event-driven programming and introduces stream processing features
 
 ![alt - RedisInsight](img/RedisInsight.JPG)
 
