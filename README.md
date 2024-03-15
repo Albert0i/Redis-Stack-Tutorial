@@ -18,7 +18,7 @@ Similarly, we could see schema, collection, document, property in NoSQL counterp
 
 ![alt - MongoDB Compass](img/MongoDB_Compass.JPG)
 
-In a word, [Redis Stack](https://redis.io/docs/about/about-stack/), backed by [Redis](https://redis.io/) technique, is a promising new species of NoSQL family. Have a look of [RedisInsight](https://redis.com/redis-enterprise/redis-insight/), one would petrified at the seeing of *all sorts of data are stored at the very top level*. 
+In a word, [Redis Stack](https://redis.io/docs/about/about-stack/), backed by [Redis](https://redis.io/) technique, is a promising new species of NoSQL family. Have a look of [RedisInsight](https://redis.com/redis-enterprise/redis-insight/), one would petrified at realizing that of *all sorts of data are stored at the very top level*. 
 
 ![alt - RedisInsight](img/RedisInsight.JPG)
 
