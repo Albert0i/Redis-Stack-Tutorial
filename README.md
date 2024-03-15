@@ -14,7 +14,7 @@ We have been taught to organize things in hierarchy since early childhood, which
 
 ![alt - phyMyAdmin](img/phpMyAdmin.JPG)
 
-Similarly we could see schema, collection, document, property in NoSQL counterpart. 
+Similarly, we could see schema, collection, document, property in NoSQL counterpart. 
 
 ![alt - MongoDB Compass](img/MongoDB_Compass.JPG)
 
