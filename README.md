@@ -72,7 +72,7 @@ HSET books:2 title "The Complete Tales and Poem" rating 9  author "Edgar Allan P
 HSET books:4 title "The Brothers Karamazov" rating 9  author "Fyodor Dostoyevsky" blurb "The first part the an unfinished story. (1/3)"  
 ```
 
-But there is a catch, you can't have numberic, boolean, array field and embedded object. This greatly impedes the usability. To store real JSON object, you need RedisJSON module installed. 
+But there is a catch, you can't have numeric, boolean, array field and embedded object, which greatly impedes its usability. To store real JSON object, you need *RedisJSON* module installed. 
 ```
 JSON.SET inventory:12345 $ '{ 
         "name": "Noise-cancelling Bluetooth headphones",
