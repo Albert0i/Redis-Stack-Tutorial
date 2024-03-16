@@ -1,3 +1,4 @@
+version: "3"
 networks: 
   redis_cluster_net: 
     driver: bridge 
@@ -8,7 +9,7 @@ networks:
 
 services: 
   redisinsight: 
-    image: 'redislabs/redisinsight:latest'
+    image: 'redislabs/redisinsight:1.14.0'
     ports: 
       - '127.0.0.1:8001:8001' 
     networks: 
@@ -16,97 +17,109 @@ services:
         ipv4_address: '173.18.0.12'
 
   redis-node-1: 
-    image: 'redis/redis-stack-server:latest' 
+    image: 'redis/redis-stack-server:6.2.6-v12' 
     container_name: redis-node-1 
     command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ] 
     ports: 
       - '7000:7000/tcp' 
     volumes: 
-      - '/Users/<dir>/Documents/redis/cluster/dump/7000:/data:rw' 
-      - /Users/<dir>/Documents/redis/cluster/7000/redis.conf:/usr/local/etc/redis/redis.conf 
+      - ./redis-data/7000:/data 
+      - ./redis-data/7000/redis.conf:/usr/local/etc/redis/redis.conf 
     environment: 
-      - REDIS_ARGS = "--save 10 1 --appendonly yes" 
+      - REDIS_APPENDONLY=yes
+      - REDIS_APPENDFSYNC=always
+      - REDIS_ARGS=--save 10 1 --appendonly yes 
     networks: 
       redis_cluster_net: 
         ipv4_address: 173.18.0.5 
 
   redis-node-2: 
-    image: 'redis/redis-stack-server:latest' 
+    image: 'redis/redis-stack-server:6.2.6-v12' 
     container_name: redis-node-2 
     command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ] 
     ports: 
       - '7001:7001/tcp' 
     volumes: 
-      - '/Users/<dir>/Documents/redis/cluster/dump/7001:/data:rw' 
-      - /Users/<dir>/Documents/redis/cluster/7001/redis.conf:/usr/local/etc/redis/redis.conf 
+      - ./redis-data/7001:/data 
+      - ./redis-data/7001/redis.conf:/usr/local/etc/redis/redis.conf 
     environment: 
-      - REDIS_ARGS = "--save 10 1 --appendonly yes" 
+      - REDIS_APPENDONLY=yes
+      - REDIS_APPENDFSYNC=always
+      - REDIS_ARGS=--save 10 1 --appendonly yes 
     networks: 
       redis_cluster_net: 
         ipv4_address: 173.18.0.6 
 
   redis-node-3: 
-    image: 'redis/redis-stack-server:latest' 
+    image: 'redis/redis-stack-server:6.2.6-v12'
     container_name: redis-node-3 
     command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ] 
     ports: 
       - '127.0.0.1:7002:7002/tcp' 
     volumes: 
-      - '/Users/<dir>/Documents/redis/cluster/dump/7002:/data:rw' 
-      - /Users/<dir>/Documents/redis/cluster/7002/redis.conf:/usr/local/etc/redis/redis.conf 
+      - ./redis-data/7002:/data 
+      - ./redis-data/7002/redis.conf:/usr/local/etc/redis/redis.conf 
     environment: 
-    - REDIS_ARGS = "--save 10 1 --appendonly yes" 
+      - REDIS_APPENDONLY=yes
+      - REDIS_APPENDFSYNC=always
+      - REDIS_ARGS=--save 10 1 --appendonly yes 
     networks: 
       redis_cluster_net: 
         ipv4_address: 173.18.0.7 
 
   redis-node-4: 
-    image: 'redis/redis-stack-server:latest' 
+    image: 'redis/redis-stack-server:6.2.6-v12'
     container_name: redis-node-4 
     command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ] 
     ports: 
       - '127.0.0.1:7003:7003/tcp' 
     volumes: 
-      - '/Users/<dir>/Documents/redis/cluster/dump/7003:/data:rw' 
-      - /Users/<dir>/Documents/redis/cluster/7003/redis.conf:/usr/local/etc/redis/redis.conf 
+      - ./redis-data/7003:/data 
+      - ./redis-data/7003/redis.conf:/usr/local/etc/redis/redis.conf 
     environment: 
-      - REDIS_ARGS = "--save 10 1 --appendonly yes" 
+      - REDIS_APPENDONLY=yes
+      - REDIS_APPENDFSYNC=always
+      - REDIS_ARGS=--save 10 1 --appendonly yes 
     networks: 
       redis_cluster_net: 
         ipv4_address: 173.18.0.8 
 
   redis-node-5: 
-    image: 'redis/redis-stack-server:latest' 
+    image: 'redis/redis-stack-server:6.2.6-v12'
     container_name: redis-node-5 
     command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ] 
     ports: 
       - '127.0.0.1:7004:7004/tcp' 
     volumes: 
-      - '/Users/<dir>/Documents/redis/cluster/dump/7004:/data:rw' 
-      - /Users/<dir>/Documents/redis/cluster/7004/redis.conf:/usr/local/etc/redis/redis.conf 
+      - ./redis-data/7004:/data 
+      - ./redis-data/7004/redis.conf:/usr/local/etc/redis/redis.conf 
     environment: 
-      - REDIS_ARGS = "--save 10 1 --appendonly yes" 
+      - REDIS_APPENDONLY=yes
+      - REDIS_APPENDFSYNC=always
+      - REDIS_ARGS=--save 10 1 --appendonly yes 
     networks: 
       redis_cluster_net: 
         ipv4_address: 173.18.0.9 
 
   redis-node-6: 
-    image: 'redis/redis-stack-server:latest' 
+    image: 'redis/redis-stack-server:6.2.6-v12'
     container_name: redis-node-6 
     command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ] 
     ports: 
       - '127.0.0.1:7005:7005/tcp' 
     volumes: 
-      - '/Users/<dir>/Documents/redis/cluster/dump/7005:/data:rw' 
-      - /Users/<dir>/Documents/redis/cluster/7005/redis.conf:/usr/local/etc/redis/redis.conf 
+      - ./redis-data/7005:/data 
+      - ./redis-data/7005/redis.conf:/usr/local/etc/redis/redis.conf 
     environment: 
-      - REDIS_ARGS = "--save 10 1 --appendonly yes" 
+      - REDIS_APPENDONLY=yes
+      - REDIS_APPENDFSYNC=always
+      - REDIS_ARGS=--save 10 1 --appendonly yes 
     networks: 
       redis_cluster_net: 
         ipv4_address: 173.18.0.10 
 
   cluster_initiator: 
-    image: 'redis/redis-stack-server:latest' 
+    image: 'redis/redis-stack-server:6.2.6-v12'
     ports: 
     - '127.0.0.1:8000:8000' 
     command: 'redis-cli --cluster create 173.18.0.5:7000 173.18.0.6:7001 173.18.0.7:7002 173.18.0.8:7003 173.18.0.9:7004 173.18.0.10:7005 --cluster-replicas 1 --cluster-yes' 
@@ -124,4 +137,9 @@ services:
 #
 # Deploying a Redis Stack Cluster using Docker images along with RedisInsight
 # https://medium.com/@joshisoftynakul/deploying-a-redis-stack-cluster-using-docker-images-along-with-redisinsight-e3588f038a40
+#
+# Docker Stack/Compose Redis Instance Not Persisting Data
+# https://stackoverflow.com/questions/52824727/docker-stack-compose-redis-instance-not-persisting-data
+#
+# EOF (2024/03/16)
 #
