@@ -24,11 +24,11 @@ In a word, [Redis Stack](https://redis.io/docs/about/about-stack/), backed by [R
 
 The reason is simple, by keeping everything on the top level, a constant access time is attained using primary key access, this make Redis a good candidate for application which requires extremely fast response time. In addition to *key-value pair*, Redis provides abundant data structures such as *list*, *set*, *sorted set*, *hash* etc. Add-on *RediJSON* module enables manipulation of JSON objects effectively; *RediSearch* module enables searching complex JSON objects using secondary index, which renders a tremendous utility boost and virtually evolves towards a full-fledged multi-model database. 
 
-Fortunately, RedisInsight has a *Tree view* option to mock-up everything provided that you named objects properly. 
+RedisInsight has a *Tree view* option to mock-up everything provided that you named objects properly. 
 
 ![alt - Tree View](img/RedisInsight_treeview.JPG)
 
-By default, redis store all value in string format, even though you can perform numeric operation on them. 
+RDBMS support large amount of datatypes, this mainly regards to data storage. On the other hand, *string* is the unique data type in redis, but the real power lies on intrinsic [Abstract Data Type](https://en.wikipedia.org/wiki/Abstract_data_type). To solve any non-trivial problem, certain data structures have to be involved. All modern programming languages equipped with library to handle queue, stack, list, dictionary, collection,... etc. but Redis provides them in database level. 
 
 ![alt redis-cli](img/redis-cli.JPG)
 
@@ -65,8 +65,6 @@ It's important to note that Redis databases are isolated from each other, meanin
 **caveat** 
 
 Redis Cluster only supports logical database 0 and currently not all libraries support logical database. 
-
-RDBMS support large amount of datatypes, this mainly regards to data storage. On the other hand, *string* is the unique data type in redis, but the real power lies on intrinsic [Abstract Data Type](https://en.wikipedia.org/wiki/Abstract_data_type). To solve any non-trivial problem, certain data structures have to be involved. All modern programming languages equipped with library to handle queue, stack, list, dictionary, collection,... etc. but Redis provides them in database level. 
 
 ---
 
