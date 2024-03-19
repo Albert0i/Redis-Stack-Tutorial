@@ -28,7 +28,7 @@ RedisInsight has a *List View* and *Tree view* options to *visually* mock-up eve
 
 ![alt - Tree View](img/RedisInsight_treeview.JPG)
 
-RDBMS support large amount of datatypes, this mainly regards to data storage. On the other hand, *string* is the unique data type in redis, but the real power lies on intrinsic [Abstract Data Type](https://en.wikipedia.org/wiki/Abstract_data_type). To solve any non-trivial problem, certain data structures have to be involved. All modern programming languages equipped with library to handle queue, stack, list, dictionary, collection,... etc. but Redis provides them in database level. 
+RDBMS supports large quantity of datatypes, this mainly regards to storage, while the underpinning datatype in Redis is *string*, the real power of it lays on intrinsic [Abstract Data Type](https://en.wikipedia.org/wiki/Abstract_data_type). To solve any non-trivial problem, certain data structures have to be involved and all modern programming languages equipped with libraries to handle queue, stack, list, dictionary, collection,... etc. but Redis provides them out of the box. 
 
 ![alt redis-cli](img/redis-cli.JPG)
 
