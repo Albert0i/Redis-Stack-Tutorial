@@ -229,6 +229,11 @@ Both MongoDB's aggregation pipeline and Redis Stack FT.AGGREGATE pipeline provid
 
 
 ### V. Introspection 
+When I made acquaintance with *Redis* several years ago, it was solely used for session store for my NodeJS app. Not until recently do I hear of and know of *Redis Stack* which targets *primary database*. The more I learn about Redis, the more I feel astronished by it's design simplicity and performance achieved. 
+
+*Key-value pair*, *List*, *Set*, *Hash* and especially [*Sorted Set*](https://redis.io/docs/data-types/sorted-sets/), when apply properly, can solve many complicated issues which would otherwise render awkwardly clumsiness in relation database. One use case I have come access more than once is that: 
+
+
 
 
 ### VI. Reference
