@@ -24,7 +24,7 @@ In a word, [Redis Stack](https://redis.io/docs/about/about-stack/), backed by [R
 
 The reason is simple, by keeping everything on the top level, a constant access time is attained using primary key access, this make Redis a good candidate for application which requires extremely fast response time. In addition to *key-value pair*, Redis provides abundant data structures such as *list*, *set*, *sorted set*, *hash* etc. Add-on *RediJSON* module enables manipulation of JSON objects effectively; *RediSearch* module enables searching complex JSON objects using secondary index, which renders a tremendous utility boost and virtually evolves towards a full-fledged multi-model database. 
 
-RedisInsight has a *Tree view* option to *visually* mock-up everything provided that you have to name the objects properly. 
+RedisInsight has a *List View* and *Tree view* options to *visually* mock-up everything provided that objects are named properly and consistently. 
 
 ![alt - Tree View](img/RedisInsight_treeview.JPG)
 
