@@ -150,7 +150,7 @@ FT.CREATE bicycle:index ON
 ### IV. [Aggregation](https://redis.io/docs/interact/search-and-query/advanced-concepts/aggregations/) 
 **caveat** 
 
-Aggretation in Redis Stack is index based, which means there is no such thing as [SQL join](https://www.w3schools.com/sql/sql_join.asp) nor [$lookup](https://www.mongodb.com/docs/manual/reference/operator/aggregation/lookup/) and [$unwind](https://www.mongodb.com/docs/manual/reference/operator/aggregation/unwind/) as in MongoDB could be. 
+Aggretation in Redis Stack is strictly index based, which means there is no such thing as [SQL join](https://www.w3schools.com/sql/sql_join.asp) nor [$lookup](https://www.mongodb.com/docs/manual/reference/operator/aggregation/lookup/) nor [$unwind](https://www.mongodb.com/docs/manual/reference/operator/aggregation/unwind/) operations as in MongoDB could be. 
 
 
 ### V. Introspection 
