@@ -205,7 +205,7 @@ FT.AGGREGATE bicycle:index *
     LIMIT 0 10 
 ```
 
-![alt aggregation1](img/FT.AGGREGATE1.JPG)
+![alt aggregation2](img/FT.AGGREGATE2.JPG)
 
 Here's a comparison of the aggregation pipelines in MongoDB and Redis Stack:
 
