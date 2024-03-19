@@ -28,7 +28,7 @@ RedisInsight has a *List View* and *Tree view* options to *visually* mock-up eve
 
 ![alt - Tree View](img/RedisInsight_treeview.JPG)
 
-RDBMS supports large quantity of datatypes, this mainly regards to storage, while the underpinning datatype in Redis is *string*, the real power of it lays on intrinsic [Abstract Data Type](https://en.wikipedia.org/wiki/Abstract_data_type). To solve any non-trivial problem, certain data structures have to be involved and all modern programming languages equipped with libraries to handle queue, stack, list, dictionary, collection,... etc. but Redis provides them out of the box. 
+Most RDBMS supports large quantity of [datatypes], this mainly pertains to storage allocation, while the underpinning datatype in Redis is *string*, the real power of it lays on intrinsic [Abstract Data Type](https://en.wikipedia.org/wiki/Abstract_data_type). To solve any non-trivial problem, certain data structures have to be involved and all modern programming languages equipped with libraries to handle queue, stack, list, dictionary, collection,... etc. but Redis provides them out of the box in teh database level. 
 
 ![alt redis-cli](img/redis-cli.JPG)
 
@@ -150,7 +150,87 @@ FT.CREATE bicycle:index ON
 ### IV. [Aggregation](https://redis.io/docs/interact/search-and-query/advanced-concepts/aggregations/) 
 **caveat** 
 
-Aggretation in Redis Stack is strictly index based, which means there is no such thing as [SQL join](https://www.w3schools.com/sql/sql_join.asp) nor [$lookup](https://www.mongodb.com/docs/manual/reference/operator/aggregation/lookup/) nor [$unwind](https://www.mongodb.com/docs/manual/reference/operator/aggregation/unwind/) operations as in MongoDB could be. 
+Aggretation in Redis Stack is strictly index based, which means there is no such thing as [SQL join](https://www.w3schools.com/sql/sql_join.asp), neither [\$lookup](https://www.mongodb.com/docs/manual/reference/operator/aggregation/lookup/) nor [\$unwind](https://www.mongodb.com/docs/manual/reference/operator/aggregation/unwind/) operations as in MongoDB could have. 
+
+The complete syntax is formidable: 
+```
+FT.AGGREGATE index query 
+  [VERBATIM] 
+  [LOAD count field [field ...]] 
+  [TIMEOUT timeout] 
+  [ GROUPBY nargs property [property ...] [ REDUCE function nargs arg [arg ...] [AS name] [ REDUCE function nargs arg [arg ...] [AS name] ...]] ...]] 
+  [ SORTBY nargs [ property ASC | DESC [ property ASC | DESC ...]] [MAX num] [WITHCOUNT] 
+  [ APPLY expression AS name [ APPLY expression AS name ...]] 
+  [ LIMIT offset num] 
+  [FILTER filter] 
+  [ WITHCURSOR [COUNT read_size] [MAXIDLE idle_time]] 
+  [ PARAMS nargs name value [ name value ...]] 
+  [DIALECT dialect]
+```
+
+Once you understand how [FT.SEARCH](https://redis.io/commands/ft.search/) works and if you are familar with [Aggregation pipeline in MongoDB](https://youtu.be/vx1C8EyTa7Y), you are half way done... 
+
+SQL
+```
+SELECT condition, count(*) AS num, sum(price) AS money
+FROM bicycles 
+GROUP BY condition
+ORDER BY 2
+OFFSET 0 LIMIT 10;  
+```
+
+Redis Stack 
+```
+FT.AGGREGATE bicycle:index *     
+    GROUPBY 1 @condition     
+    REDUCE COUNT 0 AS num 
+    REDUCE SUM 1 @price AS money
+    SORTBY 2 @num DESC 
+    LIMIT 0 10
+```
+
+![alt aggregation1](img/FT.AGGREGATE1.JPG)
+
+More elaborated: 
+```
+FT.AGGREGATE bicycle:index * 
+    LOAD 3 __key brand model
+    APPLY 'format("%s-%s", @brand, @model)' AS name     
+    GROUPBY 1 @condition     
+    REDUCE TOLIST 1 @__key AS keys 
+    REDUCE TOLIST 1 @name AS names 
+    REDUCE COUNT 0 AS num 
+    REDUCE SUM 1 @price AS money
+    SORTBY 2 @num DESC 
+    LIMIT 0 10 
+```
+
+![alt aggregation1](img/FT.AGGREGATE1.JPG)
+
+Here's a comparison of the aggregation pipelines in MongoDB and Redis Stack:
+
+| Feature                           | MongoDB Aggregation Pipeline                           | Redis FT (Redisearch) FT.AGGREGATE Pipeline |
+|-----------------------------------|--------------------------------------------------------|--------------------------------------------|
+| Purpose                           | Data aggregation and transformation                    | Full-text search and aggregation            |
+| Data Source                       | MongoDB collections and documents                      | Redisearch indexes and documents           |
+| Syntax                            | JSON-like syntax with stages and operators             | Command-based syntax with stages and filters|
+| Core Operations                   | Filtering, grouping, sorting, projecting, joining, etc.| Filtering, sorting, grouping, aggregating  |
+| Joining                           | `$lookup` operator for joining collections             | N/A (Redis FT does not support joins)       |
+| Full-Text Search                  | N/A (MongoDB has a separate full-text search feature)  | Supported with Redisearch indexes           |
+| Performance                       | Efficient for complex data manipulations               | Designed for fast full-text search          |
+| Data Transformations              | `$project`, `$group`, `$sort`, `$limit`, `$skip`, etc.| N/A (Redis FT focuses on search operations) |
+| Pipelining and Chaining           | Multiple stages can be chained together                | Multiple stages can be chained together     |
+| Aggregation Functions             | `$sum`, `$avg`, `$min`, `$max`, `$count`, etc.        | `SUM`, `AVG`, `MIN`, `MAX`, `COUNT`, etc.   |
+| Custom Functions                  | Supports custom JavaScript functions                   | Supports custom Lua scripts                 |
+| Index Usage                       | Can utilize indexes for performance optimization       | Utilizes Redisearch indexes for search      |
+| Real-Time Updates                 | Supports real-time updates to the source data          | Supports real-time updates to the index     |
+| Scalability and Sharding          | Supports horizontal scaling and sharding               | Supports horizontal scaling and sharding   |
+| Data Persistence                  | Data stored in MongoDB collections                     | Data stored in Redisearch indexes           |
+| Query Language and Syntax         | MongoDB Query Language (MQL)                           | Command-based syntax similar to Redis       |
+
+Both MongoDB's aggregation pipeline and Redis Stack FT.AGGREGATE pipeline provide powerful data manipulation and analysis capabilities, their primary focus and design differ. MongoDB's aggregation pipeline is a versatile tool for aggregating and transforming data within the database, while Redis FT's pipeline is primarily designed for fast full-text search and aggregation operations on RediSearch indexes.
+
+(Generated by ChatGPT)
 
 
 ### V. Introspection 
