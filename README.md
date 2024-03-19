@@ -218,14 +218,9 @@ Here's a comparison of aggregation pipeline in MongoDB and Redis Stack:
 | Joining                           | `$lookup` operator for joining collections             | N/A (FT.AGGREGATE does not support joins)       |
 | Full-Text Search                  | N/A (MongoDB has a separate full-text search feature)  | Supported with RediSearch indexes           |
 | Performance                       | Efficient for complex data manipulations               | Designed for fast full-text search          |
-| Data Transformations              | `$project`, `$group`, `$sort`, `$limit`, `$skip`, etc.| N/A (FT.AGGREGATE focuses on search operations) |
 | Pipelining and Chaining           | Multiple stages can be chained together                | Multiple stages can be chained together     |
 | Aggregation Functions             | `$sum`, `$avg`, `$min`, `$max`, `$count`, etc.        | `SUM`, `AVG`, `MIN`, `MAX`, `COUNT`, etc.   |
 | Custom Functions                  | Supports custom JavaScript functions                   | Supports custom Lua scripts                 |
-| Index Usage                       | Can utilize indexes for performance optimization       | Utilizes RediSearch indexes for search      |
-| Real-Time Updates                 | Supports real-time updates to the source data          | Supports real-time updates to the index     |
-| Scalability and Sharding          | Supports horizontal scaling and sharding               | Supports horizontal scaling and sharding   |
-| Data Persistence                  | Data stored in MongoDB collections                     | Data stored in RediSearch indexes           |
 | Query Language and Syntax         | MongoDB Query Language (MQL)                           | Command-based syntax similar to Redis       |
 
 Both MongoDB's aggregation pipeline and Redis Stack FT.AGGREGATE pipeline provide powerful data manipulation and analysis capabilities, their primary focus and design differ. MongoDB's aggregation pipeline is a versatile tool for aggregating and transforming data within the database, while Redis FT's pipeline is primarily designed for fast full-text search and aggregation operations on RediSearch indexes.
