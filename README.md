@@ -253,13 +253,11 @@ When I made acquaintance with *Redis* several years ago, it was solely used for 
 
 5. [‘Abstract thought’ -How is it significant and how does it define the basis for modern humanity?](https://bc805.medium.com/abstract-thought-how-is-it-significant-and-how-does-it-define-the-basis-for-modern-humanity-a98a5b92fb9f)
 
-6. [Pascal Programming Language — RIP Niklaus Wirth](https://medium.com/@AhmedF/pascal-programming-language-rip-niklaus-wirth-d230a3d9ea88)
-
-7. [The Mystery of Edwin Drood](https://www.gutenberg.org/cache/epub/564/pg564-images.html)
+6. [The Mystery of Edwin Drood](https://www.gutenberg.org/cache/epub/564/pg564-images.html)
 
 
 ### Epilogue
 > Time was when travel-stained pilgrims rode in clattering parties through the city’s welcome shades; time is when wayfarers, leading a gipsy life between haymaking time and harvest, ...
 
 
-### EOF (2024/03/20)
+### EOF (2024/03/19)
