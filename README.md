@@ -294,7 +294,7 @@ ZREVRANGE queue:123 0 -1 WITHSCORES
 
 ![alt SortedSet2](img/sortedSetCase2.JPG)
 
-As yo can see, there a whole bunch of operation when working with Sorted Set in Redis. 
+As yo can see, there a whole bunch of operations when working with Sorted Set in Redis. 
 
 ![alt SortedSet3](img/sortedSetCase3.JPG)
 
