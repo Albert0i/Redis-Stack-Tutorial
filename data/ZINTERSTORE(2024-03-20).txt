@@ -22,3 +22,12 @@ inter x max
 -----------
 2160 bill 
 1000 mary 
+
+3) 
+zadd events:capacity 60102 "Closing Ceremony" 10000 "Table Tennis" 6000 "Skateboarding"
+
+zadd events:sales -200 "Table Tennis" -5900 "Skateboarding"
+
+zunionstore events:availability 2 events:capacity events:sales aggregate sum 
+
+zrange events:availability 0 -1 withscores 
