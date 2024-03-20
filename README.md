@@ -268,7 +268,7 @@ ZADD queue:123 211.332 20240130
 ```
 Value before decimal point is actual calculated score; value after decimal point is random number. 
 
-To find out how the size of the queue: 
+To find out the size of the queue: 
 ```
 ZCARD queue:123
 ```
@@ -291,9 +291,11 @@ To list out the whole queue (zero-based):
 ```
 ZREVRANGE queue:123 0 -1 WITHSCORES
 ```
+
 ![alt SortedSet2](img/sortedSetCase2.JPG)
 
 As yo can see, there a whole bunch of operation when working with Sorted Set in Redis. 
+
 ![alt SortedSet3](img/sortedSetCase3.JPG)
 
 
