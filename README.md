@@ -168,7 +168,7 @@ FT.AGGREGATE index query
   [DIALECT dialect]
 ```
 
-Once you understand how [FT.SEARCH](https://redis.io/commands/ft.search/) works and if you are familar with [Aggregation pipeline in MongoDB](https://youtu.be/vx1C8EyTa7Y), you are half way done... 
+The good news is: once you become familiar with how [FT.SEARCH](https://redis.io/commands/ft.search/) works and if you are familar with [Aggregation pipeline in MongoDB](https://youtu.be/vx1C8EyTa7Y), you are already half way done... 
 
 SQL
 ```
@@ -191,7 +191,7 @@ FT.AGGREGATE bicycle:index *
 
 ![alt aggregation1](img/FT.AGGREGATE1.JPG)
 
-More elaborated: 
+Elaborate more: 
 ```
 FT.AGGREGATE bicycle:index * 
     LOAD 3 __key brand model
@@ -231,7 +231,7 @@ Both MongoDB's aggregation pipeline and Redis Stack FT.AGGREGATE pipeline provid
 ### V. Introspection 
 When I made acquaintance with *Redis* several years ago, it was solely for session store of my NodeJS app. Not until recently do I hear of, know of, *Redis Stack* which targets *primary database*. The more I learn about Redis, the more I appreciate it's design simplicity and performance achieved. 
 
-*Key-value pair*, *List*, *Set*, *Hash* and especially [*Sorted Set*](https://redis.io/docs/data-types/sorted-sets/), when apply properly, can solve many complicated real world issues which would otherwise renders awkward clumsiness in rigid relational databases. One use case I have come across more than once is application of some public resource: 
+*Key-value pair*, *List*, *Set*, *Hash* and especially [*Sorted Set*](https://redis.io/docs/data-types/sorted-sets/), when apply properly, can solve many complicated real world issues which would otherwise renders awkward clumsiness in rigid relational databases. List, per se, can implement *stack* and *queue* which are common useful data structure, while Set is a natural choice for data de-duplication. As for Sorted Set, one use case I have come up with is the application of some public resource: 
 
 - Base on each applicant, a score is calculated according to a pre-defined formula; 
 - All applicants are queued up according to the score in descending order; 
@@ -240,6 +240,47 @@ When I made acquaintance with *Redis* several years ago, it was solely for sessi
 - Applicants can change their status and hence a new score is re-calculate and re-stored at anytime; 
 - Applicants can check their current position (rank) in queue at any time; 
 - A list of ordered applicants can be generated at any time. 
+
+Using Sorted Set to, to add 12 applicants `ZADD score value`: 
+```
+ZADD queue:123 157.322 20240007
+ZADD queue:123 210.015 20240012
+ZADD queue:123 128.580 20240002
+ZADD queue:123 250.477 20240077
+ZADD queue:123 237.831 20240155
+ZADD queue:123 097.664 20240038
+ZADD queue:123 125.481 20240052
+ZADD queue:123 175.225 20240025
+ZADD queue:123 198.137 20240032
+ZADD queue:123 175.588 20240087
+ZADD queue:123 230.645 20240102
+ZADD queue:123 211.332 20240130
+```
+Value before decimal point is the calculated score; value after decimal point is random number. 
+
+To find out how size of the queue: 
+```
+ZCARD queue:123
+```
+
+To count by score:
+```
+ZCOUNT queue:123 1 100
+ZCOUNT queue:123 101 200
+ZCOUNT queue:123 201 300
+```
+
+To find out current position (zero-based) of 20240025:  
+```
+ZREVRANK queue:123 20240025
+```
+
+To list out the whole queue (zero-based):
+```
+ZREVRANGE queue:123 0 -1 WITHSCORES
+```
+
+There a whole bunch of operation you can use when working with Sorted Set. 
 
 
 ### VI. Reference
