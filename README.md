@@ -237,18 +237,19 @@ When I made acquaintance with *Redis* several years ago, it was solely for sessi
 - All applicants are queued up according to the score in descending order; 
 - Applicants with the same score will be ordered randomly in the same *score-group*; 
 - Applicants can be added or removed at anytime; 
-- Applicants can change their status and hence a new score is re-calculate and re-stored at anytime; 
+- Applicants can change their status and hence a new score is re-calculate and re-position could happen at anytime; 
 - Applicants can check their current position (rank) in queue at any time; 
 - A list of ordered applicants can be generated at any time. 
 
-A queuing table has to be setup and maintained on data change. 
-| Application number | Score | Position |
-| ----------- | ----------- | ----------- |
+In RDBMS, a queuing table has to be setup and somehow maintained on each data change. 
+| App. number | Score | Position |
+| -------- | --- | --- |
 | 20240077 | 250 | 1 | 
 | 20240155 | 237 | 2 |
 | 20240102 | 230 | 3 |
+| ... | ... | ... |
 
-These can be done on-demand, by database trigger or by scheduled job. 
+These can be done *realtime* on-demand, by database trigger or by scheduled job. 
 
 However, using Sorted Set to add 12 applicants, ie. `ZADD score value`: 
 ```
@@ -265,31 +266,35 @@ ZADD queue:123 175.588 20240087
 ZADD queue:123 230.645 20240102
 ZADD queue:123 211.332 20240130
 ```
-Value before decimal point is the calculated score; value after decimal point is random number. 
+Value before decimal point is actual calculated score; value after decimal point is random number. 
 
-To find out how size of the queue: 
+To find out how the size of the queue: 
 ```
 ZCARD queue:123
 ```
 
-To count by score:
+To count by score range:
 ```
 ZCOUNT queue:123 1 100
 ZCOUNT queue:123 101 200
 ZCOUNT queue:123 201 300
 ```
 
-To find out current position (zero-based) of 20240025:  
+To find out current position (zero-based) of App. number `20240025`:  
 ```
 ZREVRANK queue:123 20240025
 ```
+
+![alt SortedSet1](img/sortedSetCase1.JPG)
 
 To list out the whole queue (zero-based):
 ```
 ZREVRANGE queue:123 0 -1 WITHSCORES
 ```
+![alt SortedSet2](img/sortedSetCase2.JPG)
 
-There a whole bunch of operation you can use when working with Sorted Set. 
+As yo can see, there a whole bunch of operation when working with Sorted Set in Redis. 
+![alt SortedSet3](img/sortedSetCase3.JPG)
 
 
 ### VI. Reference
