@@ -1,0 +1,24 @@
+1) 
+zadd sales:judo 1500 june 2000 bill 200 mary 
+zadd sales:wrestling 1800 bill 1000 bob 800 mary 
+
+zinterstore promo:taekwondo 2 sales:wrestling sales:judo aggregate sum
+
+zrange promo:taekwondo 0 -1 withscores
+
+2) 
+sadd waitlist:taekwondo emma bill mary 
+
+zinterstore promo:taekwondo 3 sales:wrestling sales:judo waitlist:taekwondo weights 1.2 0.8 1000 aggregate max 
+
+zrange promo:taekwondo 0 -1 withscores
+
+--- 
+sales:wrestling --> 2160 bill 1200 bob 960 mary 
+sales:judo --> 1200 june 1600 bill 160 mary 
+waitlist:taekwondo --> 1000 emma 1000 bill 1000 mary 
+
+inter x max 
+-----------
+2160 bill 
+1000 mary 
