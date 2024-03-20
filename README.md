@@ -241,7 +241,14 @@ When I made acquaintance with *Redis* several years ago, it was solely for sessi
 - Applicants can check their current position (rank) in queue at any time; 
 - A list of ordered applicants can be generated at any time. 
 
-Using Sorted Set to, to add 12 applicants `ZADD score value`: 
+| Application number | Score | Position |
+| ----------- | ----------- | ----------- |
+| 20240077 | 250.477 | 1 | 
+| 20240155 | 237.831 | 2 |
+| 20240102 | 230.645 | 3 |
+
+
+Using Sorted Set to add 12 applicants, ie. `ZADD score value`: 
 ```
 ZADD queue:123 157.322 20240007
 ZADD queue:123 210.015 20240012
