@@ -28,7 +28,7 @@ RedisInsight has a *List View* and *Tree view* options to *visually* mock-up eve
 
 ![alt - Tree View](img/RedisInsight_treeview.JPG)
 
-Most RDBMS supports large quantity of [datatypes](https://www.w3schools.com/mysql/mysql_datatypes.asp), this mainly pertains to storage allocation, while the underpinning datatype in Redis is *string*, the real power of it lays on intrinsic [Abstract Data Type](https://en.wikipedia.org/wiki/Abstract_data_type). To solve any non-trivial problem, certain data structures have to be involved and all modern programming languages equipped with libraries to handle queue, stack, list, dictionary, collection,... etc. but Redis provides them out of the box in teh database level. 
+Most RDBMS supports large quantity of [datatypes](https://www.w3schools.com/mysql/mysql_datatypes.asp), this mainly pertains to storage allocation, while the underpinning datatype in Redis is *string*, the real power of it lays in intrinsic [Abstract Data Type](https://en.wikipedia.org/wiki/Abstract_data_type). To solve any non-trivial problem, certain data structures have to be involved and all modern programming languages equipped with libraries to handle queue, stack, list, dictionary, collection,... etc. but Redis provides them out of the box in teh database level. 
 
 ![alt redis-cli](img/redis-cli.JPG)
 
