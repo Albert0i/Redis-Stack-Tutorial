@@ -231,7 +231,7 @@ Both MongoDB's aggregation pipeline and Redis Stack FT.AGGREGATE pipeline provid
 ### V. Introspection 
 When I made acquaintance with *Redis* several years ago, it was solely for session store of my NodeJS app. Not until recently do I hear of, know of, *Redis Stack* which targets *primary database*. The more I learn about Redis, the more I appreciate it's design simplicity and performance achieved. 
 
-*Key-value pair*, *List*, *Set*, *Hash* and especially [*Sorted Set*](https://redis.io/docs/data-types/sorted-sets/), when apply properly, can solve many complicated real world issues which would otherwise renders awkward clumsiness in rigid relational databases. List, per se, can implement *stack* and *queue* which are common useful data structure, while Set is a natural choice for data de-duplication. As for Sorted Set, one use case I have come up with is the application of some public resource: 
+*Key-value pair*, *List*, *Set*, *Hash* and especially [*Sorted Set*](https://redis.io/docs/data-types/sorted-sets/), when apply properly, can solve many complicated real world issues which would otherwise renders awkward clumsiness in rigid relational databases. List, per se, can implement *stack* and *queue* which are common useful data structure, while Set is a natural choice for data *de-duplication*. As for Sorted Set, one use case I have come up with is the application of some public resource: 
 
 - Base on each applicant, a score is calculated according to a pre-defined formula; 
 - All applicants are queued up according to the score in descending order; 
@@ -241,13 +241,16 @@ When I made acquaintance with *Redis* several years ago, it was solely for sessi
 - Applicants can check their current position (rank) in queue at any time; 
 - A list of ordered applicants can be generated at any time. 
 
+A queuing table has to be setup and maintained on data change. 
 | Application number | Score | Position |
 | ----------- | ----------- | ----------- |
 | 20240077 | 250 | 1 | 
 | 20240155 | 237 | 2 |
 | 20240102 | 230 | 3 |
 
-Using Sorted Set to add 12 applicants, ie. `ZADD score value`: 
+These can be done on-demand, by database trigger or by scheduled job. 
+
+However, using Sorted Set to add 12 applicants, ie. `ZADD score value`: 
 ```
 ZADD queue:123 157.322 20240007
 ZADD queue:123 210.015 20240012
