@@ -243,10 +243,9 @@ When I made acquaintance with *Redis* several years ago, it was solely for sessi
 
 | Application number | Score | Position |
 | ----------- | ----------- | ----------- |
-| 20240077 | 250.477 | 1 | 
-| 20240155 | 237.831 | 2 |
-| 20240102 | 230.645 | 3 |
-
+| 20240077 | 250 | 1 | 
+| 20240155 | 237 | 2 |
+| 20240102 | 230 | 3 |
 
 Using Sorted Set to add 12 applicants, ie. `ZADD score value`: 
 ```
