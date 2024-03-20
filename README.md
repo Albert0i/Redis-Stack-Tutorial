@@ -241,7 +241,7 @@ When I made acquaintance with *Redis* several years ago, it was solely for sessi
 - Applicants can check their current position (rank) in queue at any time; 
 - A list of ordered applicants can be generated at any time. 
 
-In RDBMS, a queuing table has to be setup and somehow maintained on each data change. 
+In RDBMS, a queuing table has to be setup and somehow maintained on every data change. 
 | App. number | Score | Position |
 | -------- | --- | --- |
 | 20240077 | 250 | 1 | 
