@@ -455,21 +455,21 @@ JSON.SET rentals:240163:001 $
 II. Indexing the documents 
 FT.CREATE rentals:index ON 
     JSON PREFIX 1 rentals: SCHEMA 
-    $.rentNo AS rentNo TAG 
-    $.location.building AS building TAG 
-    $.location.flat AS flat TAG 
-    $.rent AS rent NUMERIC 
-    $.startDate AS startDate NUMERIC 
-    $.endDate AS endDate NUMERIC 
-    $.status AS status TAG 
-    $.remark AS remark TEXT WEIGHT 3.0 
-    $.members[*].memseq as memseq NUMERIC
-    $.members[*].name as name TEXT WEIGHT 3.0 
-    $.members[*].post as post TAG
-    $.members[*].gender as gender TAG 
-    $.members[*].birthday as birthday NUMERIC
-    $.updateBy AS updateBy TAG
-    $.updateAt AS updateAt NUMERIC 
+    $.rentNo AS rentNo TAG SORTABLE
+    $.location.building AS building TAG SORTABLE
+    $.location.flat AS flat TAG SORTABLE
+    $.rent AS rent NUMERIC SORTABLE
+    $.startDate AS startDate NUMERIC SORTABLE
+    $.endDate AS endDate NUMERIC SORTABLE
+    $.status AS status TAG SORTABLE
+    $.remark AS remark TEXT WEIGHT 3.0 SORTABLE
+    $.members[*].memseq as memseq NUMERIC SORTABLE
+    $.members[*].name as name TEXT WEIGHT 3.0 SORTABLE
+    $.members[*].post as post TAG SORTABLE
+    $.members[*].gender as gender TAG SORTABLE
+    $.members[*].birthday as birthday NUMERIC SORTABLE
+    $.updateBy AS updateBy TAG SORTABLE
+    $.updateAt AS updateAt NUMERIC SORTABLE
 
 
 III. Search 
@@ -524,21 +524,33 @@ To search for families updated by operator Alice:
 
 IV. Aggregate 
 ft.aggregate rentals:index * 
+    GROUPBY 0
+    REDUCE COUNT 0 AS total 
+
+ft.aggregate rentals:index * 
     GROUPBY 1 @updateBy
     REDUCE COUNT 0 AS num
     SORTBY 1 @updateBy
+    LIMIT 1 20 
 
 ft.aggregate rentals:index * 
     GROUPBY 1 @building
     REDUCE COUNT 0 AS num
     SORTBY 1 @building
+    LIMIT 1 20 
 
+ft.aggregate rentals:index * 
+    GROUPBY 1 @flat
+    REDUCE COUNT 0 AS num
+    SORTBY 1 @flat
+    LIMIT 1 20 
 
 
 ft.aggregate rentals:index * 
-    GROUPBY 1 @building
+    GROUPBY 1 @gender 
     REDUCE COUNT 0 AS num
-    SORTBY 2 @num DESC 
+    SORTBY 1 @gender
+    LIMIT 1 20 
     
 FT.AGGREGATE bicycle:index * GROUPBY 1 @condition 
     REDUCE TOLIST 1 @model AS models  
