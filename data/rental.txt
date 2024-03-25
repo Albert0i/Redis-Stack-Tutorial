@@ -456,17 +456,17 @@ II. Indexing the documents
 FT.CREATE rentals:index ON 
     JSON PREFIX 1 rentals: SCHEMA 
     $.rentNo AS rentNo TAG SORTABLE
-    $.location.building AS building TAG SORTABLE
-    $.location.flat AS flat TAG SORTABLE
+    $.location.building AS building TAG SORTABLE  
+    $.location.flat AS flat TAG SORTABLE  
     $.rent AS rent NUMERIC SORTABLE
     $.startDate AS startDate NUMERIC SORTABLE
     $.endDate AS endDate NUMERIC SORTABLE
-    $.status AS status TAG SORTABLE
+    $.status AS status TAG SORTABLE  
     $.remark AS remark TEXT WEIGHT 3.0 SORTABLE
     $.members[*].memseq as memseq NUMERIC SORTABLE
     $.members[*].name as name TEXT WEIGHT 3.0 SORTABLE
-    $.members[*].post as post TAG SORTABLE
-    $.members[*].gender as gender TAG SORTABLE
+    $.members[*].post as post TAG SORTABLE  
+    $.members[*].gender as gender TAG SORTABLE 
     $.members[*].birthday as birthday NUMERIC SORTABLE
     $.updateBy AS updateBy TAG SORTABLE
     $.updateAt AS updateAt NUMERIC SORTABLE
