@@ -186,8 +186,8 @@ JSON.SET rentals:240026:001 $
     '{
         "rentNo": "240026",
         "location": {
-        "building": "AS-8",
-        "flat": "6A"
+            "building": "AS-8",
+            "flat": "6A"
         },
         "rent": 33.2,
         "startDate": 20120330,
@@ -466,7 +466,7 @@ FT.CREATE rentals:index ON
     $.members[*].memseq as memseq NUMERIC
     $.members[*].name as name TEXT WEIGHT 3.0 
     $.members[*].post as post TAG
-    $.members[*].gender as gender TAG
+    $.members[*].gender as gender TAG 
     $.members[*].birthday as birthday NUMERIC
     $.updateBy AS updateBy TAG
     $.updateAt AS updateAt NUMERIC 
@@ -523,6 +523,30 @@ To search for families updated by operator Alice:
 
 
 IV. Aggregate 
+ft.aggregate rentals:index * 
+    GROUPBY 1 @updateBy
+    REDUCE COUNT 0 AS num
+    SORTBY 1 @updateBy
+
+ft.aggregate rentals:index * 
+    GROUPBY 1 @building
+    REDUCE COUNT 0 AS num
+    SORTBY 1 @building
+
+
+
+ft.aggregate rentals:index * 
+    GROUPBY 1 @building
+    REDUCE COUNT 0 AS num
+    SORTBY 2 @num DESC 
+    
+FT.AGGREGATE bicycle:index * GROUPBY 1 @condition 
+    REDUCE TOLIST 1 @model AS models  
+    REDUCE COUNT 0 AS num 
+    REDUCE SUM 1 @price AS money
+    SORTBY 2 @num DESC 
+    LIMIT 0 10 
+
 
 
 EOF (2024/03/25)
