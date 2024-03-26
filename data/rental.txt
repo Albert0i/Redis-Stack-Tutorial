@@ -503,8 +503,8 @@ To search for families with rent 50 to 100 (not inclusive):
 To search for all active families:    
     ft.search rentals:index @status:{active}
 
-To search for families which lived in building AS-1, AS-2 and AS-3:
-    ft.search rentals:index @building:{as\-1|as\-2|as\-3}
+To search for families which lived in building AS-01 and AS-02:
+    ft.search rentals:index @building:{as\-01|as\-02}
 
 To search for families which lived in in flat "5A":
     ft.search rentals:index @flat:{5a}
@@ -551,16 +551,11 @@ ft.aggregate rentals:index *
     REDUCE COUNT 0 AS num
     SORTBY 1 @gender
     LIMIT 1 20 
-    
-FT.AGGREGATE bicycle:index * GROUPBY 1 @condition 
-    REDUCE TOLIST 1 @model AS models  
-    REDUCE COUNT 0 AS num 
-    REDUCE SUM 1 @price AS money
-    SORTBY 2 @num DESC 
-    LIMIT 0 10 
 
 
 V. Cleaning up
+FT.DROPINDEX rentals:index 
+
 del rentals:240012:001
 del rentals:240025:001
 del rentals:240026:001
