@@ -129,9 +129,8 @@ JSON.SET rentals:240008:001 $
         "remark": "The family enjoys hiking on weekends. Father is a doctor, mother is a lawyer, and their two children are in high school.",
         "members": [
             {"memseq": 1, "name": "Andrew Wilson", "post": "father", "gender": "male", "birthday": 19790905},
-            {"memseq": 2, "name": "Emily Wilson", "post": "mother", "gender": "female", "birthday": 19810719},
-            {"memseq": 3, "name": "Matthew Wilson", "post": "son", "gender": "male", "birthday": 20010930},
-            {"memseq": 4, "name": "Sophia Wilson", "post": "daughter", "gender": "female", "birthday": 20040312}
+            {"memseq": 2, "name": "Matthew Wilson", "post": "son", "gender": "male", "birthday": 20010930},
+            {"memseq": 3, "name": "Sophia Wilson", "post": "daughter", "gender": "female", "birthday": 20040312}
         ],
         "updateBy": "JAMES",
         "updateAt": 20240324
@@ -152,8 +151,7 @@ JSON.SET rentals:240123:001 $
         "remark": "The family enjoys gardening. Both parents work full-time, and their son is studying in college.",
         "members": [
             {"memseq": 1, "name": "Christopher Anderson", "post": "father", "gender": "male", "birthday": 19740615},
-            {"memseq": 2, "name": "Melissa Anderson", "post": "mother", "gender": "female", "birthday": 19780222},
-            {"memseq": 3, "name": "Daniel Anderson", "post": "son", "gender": "male", "birthday": 19961208}
+            {"memseq": 2, "name": "Melissa Anderson", "post": "mother", "gender": "female", "birthday": 19780222}
         ],
         "updateBy": "SOPHIA",
         "updateAt": 20240318
@@ -192,7 +190,7 @@ JSON.SET rentals:240026:001 $
         "rent": 33.2,
         "startDate": 20120330,
         "endDate": 20241231,
-        "status": "active",
+        "status": "cancel",
         "remark": "The family recently moved to a new city. Both parents are freelancers, and their daughter is attending a local school.",
         "members": [
         {"memseq": 1, "name": "William Thompson", "post": "father", "gender": "male", "birthday": 19861008},
@@ -259,7 +257,7 @@ JSON.SET rentals:240015:001 $
         "rent": 36.5,
         "startDate": 20220105,
         "endDate": 20221231,
-        "status": "active",
+        "status": "cancel",
         "remark": "Member 1: Requires a wheelchair due to paralysis. Member 2: Has visual impairment.",
         "members": [
             {"memseq": 1, "name": "David Johnson", "post": "father", "gender": "male", "birthday": 19760912},
@@ -330,10 +328,9 @@ JSON.SET rentals:240177:001 $
         "status": "active",
         "remark": "The family enjoys traveling together. Both parents work during the day, and their two children are in middle school.",
         "members": [
-            {"memseq": 1, "name": "Michael Johnson", "post": "father", "gender": "male", "birthday": 19791205},
-            {"memseq": 2, "name": "Jennifer Johnson", "post": "mother", "gender": "female", "birthday": 19810318},
-            {"memseq": 3, "name": "Ethan Johnson", "post": "son", "gender": "male", "birthday": 20060210},
-            {"memseq": 4, "name": "Sophia Johnson", "post": "daughter", "gender": "female", "birthday": 20090123}
+            {"memseq": 1, "name": "Jennifer Johnson", "post": "mother", "gender": "female", "birthday": 19810318},
+            {"memseq": 2, "name": "Ethan Johnson", "post": "son", "gender": "male", "birthday": 20060210},
+            {"memseq": 3, "name": "Sophia Johnson", "post": "daughter", "gender": "female", "birthday": 20090123}
         ],
         "updateBy": "OLIVIA",
         "updateAt": 20240325
@@ -353,9 +350,8 @@ JSON.SET rentals:240032:001 $
         "status": "active",
         "remark": "Member 1: Recovering from a broken arm. Member 2: Requires regular medication for asthma.",
         "members": [
-            {"memseq": 1, "name": "Andrew Thompson", "post": "father", "gender": "male", "birthday": 19890402},
-            {"memseq": 2, "name": "Sophie Thompson", "post": "mother", "gender": "female", "birthday": 19910623},
-            {"memseq": 3, "name": "Jacob Thompson", "post": "son", "gender": "male", "birthday": 20150214}
+            {"memseq": 1, "name": "Sophie Thompson", "post": "mother", "gender": "female", "birthday": 19910623},
+            {"memseq": 2, "name": "Jacob Thompson", "post": "son", "gender": "male", "birthday": 20150214}
         ],
         "updateBy": "OLIVIA",
         "updateAt": 20240325
@@ -400,7 +396,7 @@ JSON.SET rentals:240125:001 $
             {"memseq": 1, "name": "James Wilson", "post": "father", "gender": "male", "birthday": 19770214},
             {"memseq": 2, "name": "Emma Wilson", "post": "mother", "gender": "female", "birthday": 19791231},
             {"memseq": 3, "name": "Liam Wilson", "post": "son", "gender": "male", "birthday": 20130520},
-            {"memseq": 4, "name": "Olivia Wilson", "post": "daughter", "gender": "female", "birthday": 20161207}
+            {"memseq": 4, "name": "Olivia Wilson", "post": "son", "gender": "male", "birthday": 20161207}
         ],
         "updateBy": "OLIVIA",
         "updateAt": 20240325
@@ -422,7 +418,7 @@ JSON.SET rentals:240088:001 $
         "members": [
             {"memseq": 1, "name": "Benjamin Anderson", "post": "father", "gender": "male", "birthday": 19710818},
             {"memseq": 2, "name": "Emily Anderson", "post": "mother", "gender": "female", "birthday": 19740802},
-            {"memseq": 3, "name": "Sophia Anderson", "post": "daughter", "gender": "female", "birthday": 20091011}
+            {"memseq": 3, "name": "Sophia Anderson", "post": "daughter", "gender": "unknown", "birthday": 20091011}
         ],
         "updateBy": "OLIVIA",
         "updateAt": 20240325
@@ -444,7 +440,7 @@ JSON.SET rentals:240163:001 $
         "members": [
             {"memseq": 1, "name": "Christopher Brown", "post": "father", "gender": "male", "birthday": 19800608},
             {"memseq": 2, "name": "Olivia Brown", "post": "mother", "gender": "female", "birthday": 19810425},
-            {"memseq": 3, "name": "Mason Brown", "post": "son", "gender": "male", "birthday": 20120413},
+            {"memseq": 3, "name": "Mason Brown", "post": "daughter", "gender": "female", "birthday": 20120413},
             {"memseq": 4, "name": "Chloe Brown", "post": "daughter", "gender": "female", "birthday": 20150929}
         ],
         "updateBy": "OLIVIA",
@@ -503,8 +499,8 @@ To search for families with rent 50 to 100 (not inclusive):
 To search for all active families:    
     ft.search rentals:index @status:{active}
 
-To search for families which lived in building AS-01 and AS-02:
-    ft.search rentals:index @building:{as\-01|as\-02}
+To search for families which lived in building AS-01 to AS-04:
+    ft.search rentals:index @building:{as\-01|as\-02|as\-03|as\-04}
 
 To search for families which lived in in flat "5A":
     ft.search rentals:index @flat:{5a}
@@ -523,34 +519,37 @@ To search for families updated by operator Alice:
 
 
 IV. Aggregate 
-ft.aggregate rentals:index * 
-    GROUPBY 0
-    REDUCE COUNT 0 AS total 
+To sum up all active families: 
+    ft.aggregate rentals:index @status:{active} 
+        GROUPBY 0
+        REDUCE COUNT 0 AS total 
 
-ft.aggregate rentals:index * 
-    GROUPBY 1 @updateBy
-    REDUCE COUNT 0 AS num
-    SORTBY 1 @updateBy
-    LIMIT 1 20 
+To group all active families by building: 
+    ft.aggregate rentals:index @status:{active} 
+        GROUPBY 1 @building
+        REDUCE COUNT 0 AS num
+        SORTBY 1 @building
 
-ft.aggregate rentals:index * 
-    GROUPBY 1 @building
-    REDUCE COUNT 0 AS num
-    SORTBY 1 @building
-    LIMIT 1 20 
+To group all families by operators: 
+    ft.aggregate rentals:index * 
+        GROUPBY 1 @updateBy
+        REDUCE COUNT 0 AS num
+        SORTBY 1 @updateBy
 
-ft.aggregate rentals:index * 
-    GROUPBY 1 @flat
-    REDUCE COUNT 0 AS num
-    SORTBY 1 @flat
-    LIMIT 1 20 
+To group all families by name: 
+    ft.aggregate rentals:index * 
+        groupby 1 @name 
+        reduce count 0 as num
+        sortby 2 @num desc 
 
+To find out how many young people are there: 
+ft.aggregate rentals:index @post:{son}} 
+        groupby 0 
+        reduce count 0 as num
 
-ft.aggregate rentals:index * 
-    GROUPBY 1 @gender 
-    REDUCE COUNT 0 AS num
-    SORTBY 1 @gender
-    LIMIT 1 20 
+ft.aggregate rentals:index @post:{daughter}} 
+        groupby 0 
+        reduce count 0 as num
 
 
 V. Cleaning up
