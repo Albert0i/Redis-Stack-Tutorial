@@ -455,13 +455,14 @@ JSON.SET rentals:240163:001 $
         "startDate": 20230101,
         "endDate": 20231231,
         "status": "active",
-        "famsiz": 4, 
+        "famsiz": 5, 
         "remark": "Member 1: Recovering from a knee surgery. Member 2: Requires a hearing aid.",
         "members": [
             {"memseq": 1, "name": "Christopher Brown", "post": "father", "gender": "male", "birthday": 19800608},
             {"memseq": 2, "name": "Olivia Brown", "post": "mother", "gender": "female", "birthday": 19810425},
             {"memseq": 3, "name": "Mason Brown", "post": "daughter", "gender": "female", "birthday": 20120413},
-            {"memseq": 4, "name": "Chloe Brown", "post": "daughter", "gender": "female", "birthday": 20150929}
+            {"memseq": 4, "name": "Chloe Brown", "post": "daughter", "gender": "female", "birthday": 20150929},
+            {"memseq": 5, "name": "Zoe Brown", "post": "daughter", "gender": "female", "birthday": 20220107}
         ],
         "updateBy": "OLIVIA",
         "updateAt": 20240325
