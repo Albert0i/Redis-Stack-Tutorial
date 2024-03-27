@@ -5,8 +5,12 @@ dementia
 retrofit
 
 ### Prologue 
-Rectangle is a concept both concreted and abstract in terms of geometric shape; both perpetual and ephemeral in terms of ideology. Rectangle is defined by four sides and four right angles, which makes it easy to understand and intuitive to use. By combining multiple rectagles vertically and/or horizontally, this effectively turns rectangles into a *table*, each small rectangle becomes a *cell* of the whole. Rectangle is a rigid and restricted structure because of pre-defined  height and width, operations are first either by horizontal *row* or by vertical *column* and then down into individual cell. Other structures such as *List*, *Set* and *Tree* bears their own elastic topology, operations on them diversify as as use cases differ. 
+Rectangle is defined by four sides and four right angles, which makes it easy to understand and intuitive to use. By combining multiple rectagles vertically and/or horizontally, this effectively turns into a *table*, each small rectangle becomes a *cell* of the whole. Rectangle is a rigid and restricted structure in nature because of it's height and width, operations are either first by horizontal *row* or by vertical *column* and then down into individual cell. While rectangle, per se, is a geometric concept, table is a structure, a *matrix* in mathematics. Other structures such as *List*, *Set* and *Tree* bears their own elastic topology, operations on them diversify as as use cases differ. 
 
+Using either NUMBER or DECIMAL, either CHAR or VARCHAR, is a matter of storage issue. Their access method, in and out, remains the same. 
+Instead of datatype, we consider data structure here, each data structure has pros and cons suits for different scenario, access methods greatly differ.  
+
+> In traditional SQL databases, you have two types of general queries: queries scanning an entire table (or multiple tables) or queries using an index. Table scans are O(N) while fully indexed queries are O(log N).
 
 ### I. 
 
