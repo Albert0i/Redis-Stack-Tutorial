@@ -4,7 +4,7 @@
 
 
 ### Prologue 
-Rectangle is defined by four sides and four right angles, which makes it easy to understand and intuitive to use. By combining multiple rectagles vertically and/or horizontally, this effectively turns into a *table*, each small rectangle becomes a *cell* of the whole. Rectangle is a rigid and restricted structure in nature because of it's height and width, operations are either first by horizontal *row* or by vertical *column* and then down into individual cell. While rectangle, per se, is a geometric concept, table is a structure, a *matrix* in mathematics. Other structures such as *List*, *Set* and *Tree* bears their own elastic topology, operations differ very much. 
+Rectangle is defined by four sides and four right angles, which makes it easy to understand and intuitive to use. By combining multiple rectagles vertically and/or horizontally, this effectively turns into a *table*, each small rectangle becomes a *cell* of the whole. Rectangle is a rigid and restricted structure in nature because of it's height and width, operations are either first by horizontal *row* or by vertical *column* and then down into individual cell. While rectangle, per se, is a geometric concept, table is a structure, a *matrix* in mathematics. Other structures such as *List*, *Set* and *Tree* bears their own elastic topology, operations are much different... 
 
 
 ### I. A piece of cake 
