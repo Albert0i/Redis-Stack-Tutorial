@@ -71,7 +71,7 @@ So to speak, when n = 10,000, the time complexity O(lg n) is approximately 13.29
 
 
 ### II. More involved example
-Subject: Local government is planning to provide lodgings for low-input families. Based on a pre-defined formula, rental fee is calculated according to economic situation as well as physical condition of individuals. A periodical random inspection is performed to verify and re-calculation is done whenever necessary. Sample record is as follow: 
+Subject: Local government is planning to provide lodgings for low-input families. Based on a pre-defined formula, rental fee is calculated according to economic situation as well as physical condition of individuals. A periodical random inspection is performed to verify and re-calculation is done whenever necessary. One sample record is as follow: 
 ```
    {
       "rentNo": "240031",
