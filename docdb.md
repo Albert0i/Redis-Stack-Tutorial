@@ -98,6 +98,162 @@ Subject: Local government is planning to provide lodgings for low-input families
 A combination of [RedisJSON](https://github.com/RedisJSON/RedisJSON) and [RediSearch](https://github.com/RediSearch/RediSearch) is required to store, retrieve and aggregate JSON documents. 
 
 
+#### 1. Indexing documents
+```
+FT.CREATE rentals:index ON 
+    JSON PREFIX 1 rentals: SCHEMA 
+    $.rentNo AS rentNo TAG SORTABLE
+    $.location.building AS building TAG SORTABLE  
+    $.location.flat AS flat TAG SORTABLE  
+    $.rent AS rent NUMERIC SORTABLE
+    $.startDate AS startDate NUMERIC SORTABLE
+    $.endDate AS endDate NUMERIC SORTABLE
+    $.status AS status TAG SORTABLE  
+    $.famsiz AS famsiz NUMERIC SORTABLE  
+    $.remark AS remark TEXT WEIGHT 3.0 SORTABLE
+    $.members[*].memseq as memseq NUMERIC SORTABLE
+    $.members[*].name as name TEXT WEIGHT 3.0 SORTABLE
+    $.members[*].post as post TAG SORTABLE  
+    $.members[*].gender as gender TAG SORTABLE 
+    $.members[*].birthday as birthday NUMERIC SORTABLE
+    $.updateBy AS updateBy TAG SORTABLE
+    $.updateAt AS updateAt NUMERIC SORTABLE
+```
+
+#### 2. Search 
+To list all families (not recommended):
+```
+    FT.search rentals:index * 
+```
+
+To search for all family keys (not recommended): 
+```
+    keys rentals:* 
+```    
+
+To search for first 100 family keys:
+```
+    scan 0 match rentals:* count 100
+```    
+
+To search for family 240005:
+```
+    FT.search rentals:index @rentNo:{240005}
+```
+
+To get indivisual family:
+```
+    JSON.GET rentals:240005:001
+```
+
+To make a full text search for "walking cane":
+```
+    ft.search rentals:index "walking cane"
+```
+
+To make a full text search on remark field for "walking cane":
+```
+    ft.search rentals:index '@remark:("walking cane")'
+```
+
+To search for families with rent 50 to 100 (inclusive):
+```
+    ft.search rentals:index '@rent:[50 100]'
+```
+
+To search for families with rent 50 to 100 (not inclusive):
+```
+    ft.search rentals:index '@rent:[(50 (100]'
+```
+
+To search for all active families:    
+```
+    ft.search rentals:index @status:{active}
+```
+
+To search for families which lived in building AS-01 to AS-04:
+```
+    ft.search rentals:index @building:{as\-01|as\-02|as\-03|as\-04}
+```
+
+To search for families which lived in in flat "5A":
+```
+    ft.search rentals:index @flat:{5a}
+```
+
+To make a full text search for "william":
+```
+    ft.search rentals:index william
+```
+
+To make a full text search on name field for "william":
+```
+    ft.search rentals:index @name:(william)
+```
+
+To search for female and birthed in 1974:
+```
+    ft.search rentals:index '@birthday:[19740101 19741231] @gender:{female}'
+```
+
+To search for families updated by operator Alice: 
+```
+    ft.search rentals:index @updateBy:{alice}
+```
+
+
+#### 3.  Aggregate 
+To sum up all active families: 
+```
+    ft.aggregate rentals:index @status:{active} 
+        GROUPBY 0
+        REDUCE COUNT 0 AS total 
+```
+
+To group all active families by building: 
+```
+    ft.aggregate rentals:index @status:{active} 
+        GROUPBY 1 @building
+        REDUCE COUNT 0 AS num
+        SORTBY 1 @building
+```
+
+To group all families by operators: 
+```
+    ft.aggregate rentals:index * 
+        GROUPBY 1 @updateBy
+        REDUCE COUNT 0 AS num
+        SORTBY 1 @updateBy
+```
+
+To group all families by name: 
+```
+    ft.aggregate rentals:index * 
+        groupby 1 @name 
+        reduce count 0 as num
+        sortby 2 @num desc 
+```
+
+To find out how many young people are there: 
+```
+    ft.aggregate rentals:index @post:{son}} 
+        groupby 0 
+        reduce count 0 as num
+
+    ft.aggregate rentals:index @post:{daughter}} 
+        groupby 0 
+        reduce count 0 as num
+```
+
+To count by family size: 
+```
+    ft.aggregate rentals:index * 
+        groupby 1 @famsiz 
+        reduce count 0 as num 
+        sortby 1 @famsiz 
+```
+
+
 ### III. Summary 
 
 
