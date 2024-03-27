@@ -96,12 +96,10 @@ Subject: Local government is planning to provide lodgings for low-input families
 ```
 
 
+### III. Summary 
 
-### III. 
 
-### IV. 
-
-### V. Reference
+### IV. Reference
 1. [Redis as a document database quick start guide](https://redis.io/docs/get-started/document-database/)
 
 2. [Redis Stack for Application Modernization](https://www.amazon.com/Redis-Stack-Application-Modernization-applications/dp/1837638187)
