@@ -12,6 +12,11 @@ Instead of datatype, we consider data structure here, each data structure has pr
 
 > In traditional SQL databases, you have two types of general queries: queries scanning an entire table (or multiple tables) or queries using an index. Table scans are O(N) while fully indexed queries are O(log N).
 
+"Constant access time" refers to the property or characteristic of a data structure or algorithm where the time taken to access or retrieve an element or perform an operation remains constant, regardless of the size or scale of the data. It implies that the data structure or algorithm provides efficient and consistent performance for accessing elements, regardless of the data's complexity.
+
+This property is highly desirable in many applications and scenarios, as it ensures predictable and efficient performance, especially when dealing with large volumes of data. Data structures like arrays and hash tables often provide constant access time for specific operations, such as retrieving an element by index or accessing a value by key.
+
+
 ### I. 
 
 ### II. 
