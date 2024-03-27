@@ -202,7 +202,48 @@ To search for families updated by operator Alice:
 ```
 
 
-#### 3.  Aggregate 
+#### 3.  [Aggregate](https://redis.io/docs/interact/search-and-query/advanced-concepts/aggregations/)
+Commonly used GROUPBY reducers: 
+| Redis Reducer       | Description                                            |
+|---------------------|--------------------------------------------------------|
+| COUNT               | Counts the number of items in each group.               |
+| SUM                 | Calculates the sum of values in each group.             |
+| MIN                 | Finds the minimum value in each group.                   |
+| MAX                 | Finds the maximum value in each group.                   |
+| AVG                 | Calculates the average value in each group.              |
+| FIRST_VALUE         | Returns the first value in each group.                   |
+| LAST_VALUE          | Returns the last value in each group.                    |
+| CONCAT              | Concatenates values in each group as a string.           |
+| COLLECT             | Collects values in each group as a list.                 |
+| DISTINCT_COUNT      | Counts the distinct values in each group.                |
+| STDDEV              | Calculates the standard deviation of values in each group. |
+| VARIANCE            | Calculates the variance of values in each group.         |
+| APPROXIMATE_UNIQUE  | Estimates the number of unique values in each group.     |
+
+Commonly used APPLY expressions: 
+| Redis Apply Expression | Description                                            |
+|------------------------|--------------------------------------------------------|
+| STRLEN                 | Returns the length of a string expression.              |
+| SUBSTR                 | Extracts a substring from a string expression.          |
+| CONCAT                 | Concatenates multiple string expressions.              |
+| TOUPPER                | Converts a string expression to uppercase.             |
+| TOLOWER                | Converts a string expression to lowercase.             |
+| TRIM                   | Removes leading and trailing spaces from a string expression. |
+| REPLACE                | Replaces occurrences of a substring in a string expression. |
+| STRREV                 | Reverses the characters in a string expression.         |
+| STRALPHA               | Checks if a string expression contains only alphabetic characters. |
+| STRNUMERIC             | Checks if a string expression contains only numeric characters. |
+| STRALNUM               | Checks if a string expression contains only alphanumeric characters. |
+| STRCMP                 | Compares two string expressions.                       |
+| STRCASECMP             | Performs a case-insensitive comparison of two string expressions. |
+| STRINDEX               | Returns the index of the first occurrence of a substring in a string expression. |
+| STRRINDEX              | Returns the index of the last occurrence of a substring in a string expression. |
+| STRCOUNT               | Counts the occurrences of a substring in a string expression. |
+| STREMPTY               | Checks if a string expression is empty.                 |
+| STRTRIM                | Trims specified characters from the beginning and end of a string expression. |
+| STRSPLIT               | Splits a string expression into an array of substrings based on a delimiter. |
+| STRJOIN                | Joins an array of strings into a single string using a delimiter. |
+
 To sum up all active families: 
 ```
     ft.aggregate rentals:index @status:{active} 
