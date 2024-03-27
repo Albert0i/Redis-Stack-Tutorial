@@ -38,33 +38,34 @@ INSERT INTO tbparcod(parcod, pardes) values('21', 'TAIPA');
 INSERT INTO tbparcod(parcod, pardes) values('22', 'COLOANE');
 ```
 
-To retrive: 
+To retrive the whole table and individual record: 
 ```
-SELECT * FROM tbparcod ORDER BY parcod
+SELECT * FROM tbparcod;
 
-SELECT pardes FROM tbparcod WHERE parcod='15'
+SELECT pardes FROM tbparcod WHERE parcod='15';
 ```
 
-Using [hash](https://redis.io/commands/?group=hash) to setup a code table is a breeze: 
+Using [hash](https://redis.io/commands/?group=hash) to store flat file is straightforward: 
 ```
 HSET tbparcod 11 "S.ANTONIO" 12 "S.L ZARO" 13 "S.LOURENCO" 14 "SE" 15 "FATIMA" 21 "TAIPA" 22 "COLOANE"
 ```
 
-To retrive: 
+To retrive the whole table and individual record is a breeze:
 ```
 HGETALL tbparcod
 
 HGET tbparcod 15
 ```
+
 The **Time complexity** of [HGETALL](https://redis.io/commands/hgetall/) is O(N) where N is the size of the hash; [HGET](https://redis.io/commands/hget/) is O(1). It doesn't mean a lot when table is small in size, but if your table grows up to 10,000 records, the time involved does matter. 
 
 > In traditional SQL databases, you have two types of general queries: queries scanning an entire table (or multiple tables) or queries using an index. Table scans are O(N) while fully indexed queries are O(lg N).
 
-The term "lg" represents the logarithm function with a base of 2. It is often called the binary logarithm. We can rewrite it as:
+The term "lg" represents the logarithm function with a base of 2. It is often called the *binary logarithm*. We can rewrite it as:
 
 O(log2 10,000) = log(10,000) / log(2) ≈ 13.29
 
-So to speak, when n = 10,000, the time complexity O(lg n) is approximately 13.29, which means that the algorithm or operation requires up to 14 iterations or comparisons before the search is finished. That alwo means the index [B+ tree](https://en.wikipedia.org/wiki/B%2B_tree) is 14 levels deep, besides occupying disk space, *re-balancing* has to be done whenever necessary. 
+So to speak, when n = 10,000, the time complexity O(lg n) is approximately 13.29, which means that the algorithm or operation requires up to 14 iterations or comparisons before the search is completed. That also means the index [B+ tree](https://en.wikipedia.org/wiki/B%2B_tree) is 14 levels deep, besides occupying disk space, *re-balancing* has to be performed whenever necessary. 
 
 *Constant access time* refers to the property or characteristic of a data structure or algorithm where the time taken to access or retrieve an element or perform an operation remains constant, regardless of the size or scale of the data, ie. time to retrieve one record within 10 or 10,0000 records is the same. 
 
