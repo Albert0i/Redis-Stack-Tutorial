@@ -71,7 +71,7 @@ So to speak, when n = 10,000, the time complexity O(lg n) is approximately 13.29
 
 
 ### II. More involved example
-Subject: Local government is planning to provide lodgings for low-input families. Based on a pre-defined formula, rental fee is calculated according to economic situation as well as physical condition of individuals. A periodical random inspection is performed to verify and re-calculation is done whenever necessary. 
+Subject: Local government is planning to provide lodgings for low-input families. Based on a pre-defined formula, rental fee is calculated according to economic situation as well as physical condition of individuals. A periodical random inspection is performed to verify and re-calculation is done whenever necessary. Sample record is as follow: 
 ```
    {
       "rentNo": "240031",
@@ -94,6 +94,8 @@ Subject: Local government is planning to provide lodgings for low-input families
       "updateAt": 20220820
    }
 ```
+
+A combination of [RedisJSON](https://github.com/RedisJSON/RedisJSON) and [RediSearch](https://github.com/RediSearch/RediSearch) is required in to store, retrieve and aggregate on JSON documents. 
 
 
 ### III. Summary 
