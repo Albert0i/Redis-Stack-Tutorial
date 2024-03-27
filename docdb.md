@@ -95,7 +95,7 @@ Subject: Local government is planning to provide lodgings for low-input families
    }
 ```
 
-A combination of [RedisJSON](https://github.com/RedisJSON/RedisJSON) and [RediSearch](https://github.com/RediSearch/RediSearch) is required in to store, retrieve and aggregate on JSON documents. 
+A combination of [RedisJSON](https://github.com/RedisJSON/RedisJSON) and [RediSearch](https://github.com/RediSearch/RediSearch) is required to store, retrieve and aggregate JSON documents. 
 
 
 ### III. Summary 
