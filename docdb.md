@@ -1,4 +1,4 @@
-### Thinking in Redis<br />───The approach to Redis as document database
+### Thinking in Redis<br />───The approach to document database
 
 ephemeral
 dementia
