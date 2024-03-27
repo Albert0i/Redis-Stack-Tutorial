@@ -1,6 +1,12 @@
-### Redis as a document database
+### Thinking in Redis<br />───The approach to Redis as document database
+
+ephemeral
+dementia
+retrofit
 
 ### Prologue 
+Rectangle is a concept both concreted and abstract in terms of geometric shape; both perpetual and ephemeral in terms of ideology. Rectangle is defined by four sides and four right angles, which makes it easy to understand and intuitive to use. By combining multiple rectagles vertically and/or horizontally, this effectively turns rectangles into a *table*, each small rectangle becomes a *cell* of the whole. Rectangle is a rigid and restricted structure because of pre-defined  height and width, operations are first either by horizontal *row* or by vertical *column* and then down into individual cell. Other structures such as *List*, *Set* and *Tree* bears their own elastic topology, operations on them diversify as as use cases differ. 
+
 
 ### I. 
 
