@@ -313,7 +313,7 @@ As another example, the `dual` table is a special table in **Oracle** that consi
 
 > In SQL systems, you have complex query planners to convert your SQL into internal database retrieval, table scanning, index lookup, and result returning commands.
 
-Redis commands are formidable, cryptical and obfuscated. It has to be practiced repeatedly until you feel comfortable, confidence and content. All and all underlaying philosophy is using minimum resource for maximum capacity. 
+Redis commands are formidable, cryptical and obfuscated. It has to be practiced repeatedly until you feel comfortable, confidence and content. All and all underlaying philosophy is using minimum resource, in terms of RAM and CPU, to achieve maximum capacity, in terms of concurrency and throughput. 
 
 
 ### IV. Reference
