@@ -130,7 +130,7 @@ One sample record is as follow:
 
 A combination of [RedisJSON](https://github.com/RedisJSON/RedisJSON) and [RediSearch](https://github.com/RediSearch/RediSearch) is required to store, retrieve and aggregate JSON documents. 
 
-#### 1. Indexing documents
+#### 1. [Indexing](https://redis.io/docs/interact/search-and-query/indexing/) documents
 Before any search could happen, an index has to be created by inspecting sample data, envisaging use case and then using `TAG`, `NUMERIC` and `TEXT` judiciously. Understanding [Field and type options](https://redis.io/docs/interact/search-and-query/basic-constructs/field-and-type-options/) is crucial in subsequent search and aggregate operations.
 
 ```
@@ -154,7 +154,7 @@ FT.CREATE rentals:index ON
     $.updateAt AS updateAt NUMERIC SORTABLE
 ```
 
-#### 2. Search 
+#### 2. [Query syntax](https://redis.io/docs/interact/search-and-query/advanced-concepts/query_syntax/)
 To list all families (not recommended):
 ```
     FT.search rentals:index * 
