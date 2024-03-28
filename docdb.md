@@ -76,7 +76,7 @@ So to speak, when n = 10,000, the time complexity O(lg n) is approximately 13.29
 
 *Constant access time* refers to the property or characteristic of a data structure or algorithm where the time taken to access or retrieve an element or perform an operation remains constant, regardless of the size or scale of the data, ie. time to retrieve one record within 10 or 10,000 records is the same. 
 
-Chances are when you are requested to show the code in order of some sort, such as: 
+However, chances are when you are requested to show the code in order of some sort, such as: 
 ```
 SELECT * FROM tbparcod ORDER BY parcod DESC; 
 ```
