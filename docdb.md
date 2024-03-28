@@ -301,6 +301,9 @@ To count by family size:
         sortby 1 @famsiz 
 ```
 
+**caveat** 
+As you can see, Redis aggregation is purely index based and can not match with those [Aggregation Pipeline](https://www.mongodb.com/docs/manual/core/aggregation-pipeline/) in MongoDB, let alone the aggregation in SQL Servers. 
+
 
 ### III. Summary 
 When working with relational database, datatypes such as NUMBER, DECIMAL, CHAR or VARCHAR, is a matter of storage. Access methods remain the same regardless of the encodeing. In Redis, what you think is data structure, not data types. Every data structure has it's own capability and deficiency. Table, as a universal data structure, has been used extensively because it's easy to understand. In scenario like [Pub/Sub](https://redis.io/commands/?group=pubsub), by dint of tables would not be good enough to implement a system with both performance and consistency. 
