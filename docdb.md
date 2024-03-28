@@ -1,6 +1,6 @@
 ### Thinking in Redis<br />───The way to document database
 
-「No kidding! There is no such thing as [SQL injection](https://www.w3schools.com/sql/sql_injection.asp) whatsoever if you do not use SQL at all...」
+「No kidding! There is no such thing as [SQL injection](https://www.w3schools.com/sql/sql_injection.asp) whatsoever if you opt not SQL at all...」
 
 「Not a database as yet more than a database...」
 
@@ -8,9 +8,7 @@
 
 
 ### Prologue 
-Rectangle is defined by four sides and four right angles, which makes it easy to understand and intuitive to use. By combining multiple rectagles vertically and/or horizontally, this effectively turns into a *table*, each small rectangle becomes a *cell* of the whole. Rectangle is a rigid and restricted structure in nature because of it's height and width, operations are either first by horizontal *row* or by vertical *column* and then down into individual cell. While rectangle, per se, is a geometric concept, table is a structure, a *matrix* in mathematics. Other structures such as *List*, *Set* and *Tree* bears their own elastic topology, operations are of much difference... 
-
-Regular shape data structure are easier to handle because they are easier to understand. Irregular shape data structure ... 
+Rectangle is defined by four sides and four right angles, which makes it easy to understand and intuitive to use. By combining multiple rectagles vertically and horizontally, this effectively forms a *table*, each small rectangle instead becomes a *cell* of the whole. Table is a rigid data  structure in nature because of it's width, height and thus number of cells, operations are either first by horizontal *row* or by vertical *column* and then down into individual cell. While rectangle, per se, is a geometric concept, table is a data structure, a *matrix* in mathematics. Other structures such as *List*, *Set* and *Hash* bears their own topology, operations varies to a shocking extend... 
 
 ### I. A piece of cake...? Not so!  
 [Database normalization](https://en.wikipedia.org/wiki/Database_normalization) is so common a practice to be carried out in table design of day-to-day life. Setting up a trivial code table is a drudgery, ie: 
@@ -128,7 +126,7 @@ Subject: Local government is planning to provide lodgings for low-input families
    }
 ```
 
-A combination of [RedisJSON](https://github.com/RedisJSON/RedisJSON) and [RediSearch](https://github.com/RediSearch/RediSearch) is required to store, retrieve and aggregate JSON documents. 
+To do so, a combination of [RedisJSON](https://github.com/RedisJSON/RedisJSON) and [RediSearch](https://github.com/RediSearch/RediSearch) is required to store, retrieve and aggregate JSON documents. 
 
 
 #### 1. Indexing documents
@@ -329,6 +327,9 @@ To count by family size:
 
 
 ### III. Summary 
+When working with relational database, datatypes such as NUMBER, DECIMAL,CHAR or VARCHAR, is a matter of storage. Access methods remain the same regardless of the encodeing. In Redis, what you think is data structure, not data types. Every data structure has it's own capability and deficiency. Table, as a universal data structure, has been used extensively because it's easy to understand. In some scenario, table would not be good enough to implement a system with good performance and consistency. 
+
+The `dual` table is a special table in **Oracle** that consists of a single row and a single column called "DUMMY". It is commonly used in Oracle queries to perform calculations, retrieve system values, or generate dummy data. There is an equivalent special table called `SYSIBM.SYSDUMMY1` in **IBM DB2 for IBM i** that serves a similar purpose. Simply because you can not *join* without table in relational databases. 
 
 
 ### IV. Reference
@@ -346,7 +347,7 @@ To count by family size:
 
 
 
-### EOF (2024/03/27)
+### EOF (2024/03/28)
 
 Using either NUMBER or DECIMAL, either CHAR or VARCHAR, is a matter of storage issue. Their access method, in and out, remains the same. 
 Instead of datatype, we consider data structure here, each data structure has pros and cons suits for different scenario, access methods greatly differ.  
