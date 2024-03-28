@@ -72,7 +72,7 @@ The term "lg" represents the logarithm function with a base of 2. It is often ca
 
 O(log2 10,000) = log(10,000) / log(2) ≈ 13.29
 
-So to speak, when n = 10,000, the time complexity O(lg n) is approximately 13.29, which means that the algorithm or operation requires up to 14 iterations or comparisons before the search is completed. That also means the index [B+ tree](https://en.wikipedia.org/wiki/B%2B_tree) is 14 levels deep, besides occupying disk space, *re-balancing* has to be performed whenever necessary. 
+So to speak, when n = 10,000, the time complexity O(lg n) is approximately 13.29, which means that the algorithm or operation requires up to 14 iterations or comparisons before the search is completed. That also means the index tree is 14 levels in depth, besides occupying disk space, *re-balancing* has to be performed whenever necessary. 
 
 *Constant access time* refers to the property or characteristic of a data structure or algorithm where the time taken to access or retrieve an element or perform an operation remains constant, regardless of the size or scale of the data, ie. time to retrieve one record within 10 or 10,000 records is the same. 
 
