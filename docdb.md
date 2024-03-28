@@ -302,6 +302,7 @@ To count by family size:
 ```
 
 **caveat** 
+
 As you can see, Redis aggregation is purely index based and can not match with those [Aggregation Pipeline](https://www.mongodb.com/docs/manual/core/aggregation-pipeline/) in MongoDB, let alone the aggregation in SQL Servers. 
 
 
