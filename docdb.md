@@ -43,7 +43,7 @@ INSERT INTO tbparcod(parcod, pardes) values('21', 'TAIPA');
 INSERT INTO tbparcod(parcod, pardes) values('22', 'COLOANE');
 ```
 
-To retrive the whole table and individual record: 
+To retrieve the whole table and individual record: 
 ```
 SELECT * FROM tbparcod;
 
@@ -55,7 +55,7 @@ Using [hash](https://redis.io/commands/?group=hash) to store flat file is straig
 HSET tbparcod 11 "S.ANTONIO" 12 "S.L ZARO" 13 "S.LOURENCO" 14 "SE" 15 "FATIMA" 21 "TAIPA" 22 "COLOANE"
 ```
 
-To retrive the whole table and individual record is a breeze:
+To retrieve the whole table and individual record is a breeze:
 ```
 HGETALL tbparcod
 
@@ -86,12 +86,12 @@ It is miserable to confess that you can't make it! While [hash](https://redis.io
 ZADD ztbparcod 11 "S.ANTONIO" 12 "S.L ZARO" 13 "S.LOURENCO" 14 "SE" 15 "FATIMA" 21 "TAIPA" 22 "COLOANE"
 ```
 
-To retrive the whole table, sorted by parcod in *ascending* order: 
+To retrieve the whole table, sorted by parcod in *ascending* order: 
 ```
 ZRANGEBYSCORE ztbparcod -inf +inf WITHSCORES
 ```
 
-To retrive the whole table, sorted by parcod in *descending* order: 
+To retrieve the whole table, sorted by parcod in *descending* order: 
 ```
 ZREVRANGEBYSCORE ztbparcod +inf -inf WITHSCORES
 ```
