@@ -102,7 +102,9 @@ ZRANGE ztbparcod 15 15 BYSCORE
 
 
 ### II. More involved example
-Subject: Local government is planning to provide lodgings for low-input families. Based on a pre-defined formula, rental fee is calculated according to economic situation as well as physical condition of individuals. A periodical random inspection is performed to verify and re-calculation is done whenever necessary. One sample record is as follow: 
+Subject: Local government is planning to provide lodgings for low-input families. Based on a pre-defined formula, rental fee is calculated according to economic situation as well as physical condition of individuals. A periodical random inspection is performed to verify and re-calculation is done whenever necessary. 
+
+One sample record is as follow: 
 ```
    {
       "rentNo": "240031",
@@ -126,10 +128,11 @@ Subject: Local government is planning to provide lodgings for low-input families
    }
 ```
 
-To do so, a combination of [RedisJSON](https://github.com/RedisJSON/RedisJSON) and [RediSearch](https://github.com/RediSearch/RediSearch) is required to store, retrieve and aggregate JSON documents. 
-
+A combination of [RedisJSON](https://github.com/RedisJSON/RedisJSON) and [RediSearch](https://github.com/RediSearch/RediSearch) is required to store, retrieve and aggregate JSON documents. 
 
 #### 1. Indexing documents
+Before any search could happen, an index has to be created by inspecting the sample data and using `TAG`, `NUMERIC` and `TEXT` judiciously. 
+
 ```
 FT.CREATE rentals:index ON 
     JSON PREFIX 1 rentals: SCHEMA 
@@ -231,7 +234,6 @@ To search for families updated by operator Alice:
 ```
     ft.search rentals:index @updateBy:{alice}
 ```
-
 
 #### 3.  [Aggregate](https://redis.io/docs/interact/search-and-query/advanced-concepts/aggregations/)
 Commonly used GROUPBY reducers: 
