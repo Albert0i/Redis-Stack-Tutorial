@@ -329,7 +329,7 @@ Redis commands are formidable, cryptical and obfuscated. It has to be practiced 
 
 
 ### Epilogue
-More than once, I have been asked "How long it takes to write a program?", "How long does it takes to duplicate a system?" Those question are raised by senior administrators not by ordinary staffs. Thanks to the popularity of [Spreadsheet](https://en.wikipedia.org/wiki/Spreadsheet), people are quite used to pen down non-trivial items in spreadsheet. Even worse, they tends to think computer system is spreadsheet and alike... 
+More than once, I have been asked "How long it takes to write a program?", "How long does it takes to duplicate a system?" Those question are raised by senior administrators not by ordinary staffs. Thanks to the popularity of [Spreadsheet](https://en.wikipedia.org/wiki/Spreadsheet), people are quite used to pen down non-trivial items in spreadsheet. Even worse, they tends to think computer system as spreadsheet and alike... 
 
 > **何謂Excel 思考模式？**
 從用戶角度出發，要記錄任何資料，最方便莫過於使用 Excel 工作表，設定標題 (heading)、格式 (formating) 和公式 (formula)，便可立即投入使用。 工作表僅足夠目前使用即可，大幹快上，無需理會其他細枝節，轉過頭來增刪欄位亦非常容易。
