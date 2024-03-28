@@ -2,13 +2,17 @@
 
 「No kidding! There is no such thing as [SQL injection](https://www.w3schools.com/sql/sql_injection.asp) whatsoever if you do not use SQL at all...」
 
+「Not a database as yet more than a database...」
+
+「dementia ephemeral retrofit...」
+
 
 ### Prologue 
 Rectangle is defined by four sides and four right angles, which makes it easy to understand and intuitive to use. By combining multiple rectagles vertically and/or horizontally, this effectively turns into a *table*, each small rectangle becomes a *cell* of the whole. Rectangle is a rigid and restricted structure in nature because of it's height and width, operations are either first by horizontal *row* or by vertical *column* and then down into individual cell. While rectangle, per se, is a geometric concept, table is a structure, a *matrix* in mathematics. Other structures such as *List*, *Set* and *Tree* bears their own elastic topology, operations are of much difference... 
 
 Regular shape data structure are easier to handle because they are easier to understand. Irregular shape data structure ... 
 
-### I. A piece of cake 
+### I. A piece of cake...? Not so!  
 [Database normalization](https://en.wikipedia.org/wiki/Database_normalization) is so common a practice to be carried out in table design of day-to-day life. Setting up a trivial code table is a drudgery, ie: 
 
 | parcod | pardes |
@@ -57,6 +61,8 @@ HGETALL tbparcod
 
 HGET tbparcod 15
 ```
+![alt tbparcod](img/tbparcod.JPG)
+
 
 The **Time complexity** of [HGETALL](https://redis.io/commands/hgetall/) is O(N) where N is the size of the hash; [HGET](https://redis.io/commands/hget/) is O(1). It doesn't mean a lot when table is small in size, but if your table grows up to 10,000 records, the time involved does matter. 
 
@@ -69,6 +75,13 @@ O(log2 10,000) = log(10,000) / log(2) ≈ 13.29
 So to speak, when n = 10,000, the time complexity O(lg n) is approximately 13.29, which means that the algorithm or operation requires up to 14 iterations or comparisons before the search is completed. That also means the index [B+ tree](https://en.wikipedia.org/wiki/B%2B_tree) is 14 levels deep, besides occupying disk space, *re-balancing* has to be performed whenever necessary. 
 
 *Constant access time* refers to the property or characteristic of a data structure or algorithm where the time taken to access or retrieve an element or perform an operation remains constant, regardless of the size or scale of the data, ie. time to retrieve one record within 10 or 10,000 records is the same. 
+
+Chances are when you are requested to show the code in order of some sort, such as: 
+```
+SELECT * FROM tbparcod ORDER BY parcod DESC; 
+```
+
+It is miserable to confess that you can't make it with [hash](https://redis.io/commands/?group=hash)... 
 
 
 ### II. More involved example
@@ -314,10 +327,6 @@ To count by family size:
 
 ### EOF (2024/03/27)
 
-ephemeral
-dementia
-retrofit
-
 Using either NUMBER or DECIMAL, either CHAR or VARCHAR, is a matter of storage issue. Their access method, in and out, remains the same. 
 Instead of datatype, we consider data structure here, each data structure has pros and cons suits for different scenario, access methods greatly differ.  
 
@@ -331,3 +340,5 @@ Instead of datatype, we consider data structure here, each data structure has pr
 
 This property is highly desirable in many applications and scenarios, as it ensures predictable and efficient performance, especially when dealing with large volumes of data. Data structures like arrays and hash tables often provide constant access time for specific operations, such as retrieving an element by index or accessing a value by key.
 
+pub/sub fire-and-forget mechanism 
+Redis uses a fire-and-forget mechanism. Only currently subscribed and connected clients will receive the message.
