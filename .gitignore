@@ -33,3 +33,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/docker/redis-data/*.rdb 
+/docker/redis-data/*.aof

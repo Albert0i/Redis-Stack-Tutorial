@@ -11,10 +11,10 @@ services:
     volumes:
         - ./redis-data:/data    
 
-  redisinsight: 
-    image: 'redislabs/redisinsight:1.14.0' 
-    ports: 
-      - '127.0.0.1:8001:8001' 
+#  redisinsight: 
+#    image: 'redislabs/redisinsight:1.14.0' 
+#    ports: 
+#      - '127.0.0.1:8001:8001' 
 
 #
 # Deploying a Redis Stack Cluster using Docker images along with RedisInsight
