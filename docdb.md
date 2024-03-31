@@ -10,6 +10,8 @@
 ### Prologue 
 Rectangle is defined by four sides and four right angles, which makes it easy to understand and intuitive to use. By combining multiple rectagles vertically and horizontally, this effectively forms a *table*, each small rectangle instead becomes a *cell* of the whole. Table is a rigid data  structure in nature because of it's width, height and thus number of cells, operations are either first by horizontal *row* or by vertical *column* and then down into individual cell. While rectangle, per se, is a geometric concept, table is a data structure, a *matrix* in mathematics. Other structures such as *List*, *Set* and *Hash* bears their own topology, operations varies to a shocking extend... 
 
+[![alt a piece of cake](img/A_piece_of_cake.png)](https://youtu.be/yDQ0rS7fje0)
+
 ### I. A piece of cake...? Not so!  
 [Database normalization](https://en.wikipedia.org/wiki/Database_normalization) is so common a practice to be carried out in table design of day-to-day life. Setting up a trivial code table is a drudgery, ie: 
 
@@ -309,13 +311,13 @@ As you can see, Redis aggregation is purely index based and can not match with t
 ### III. Summary 
 When working with relational database, datatypes such as NUMBER, DECIMAL, CHAR or VARCHAR, is a matter of storage. Access methods remain the same regardless of the encodeing. In Redis, what you think is data structure, not data types. Every data structure has it's own capability and deficiency. Table, as a universal data structure, has been used extensively because it's easy to understand. In scenario like [Pub/Sub](https://redis.io/commands/?group=pubsub), by dint of tables would not be good enough to implement a system with both performance and consistency. 
 
-For some unknown reason, I was responsible for maintaining some [Stone Age](https://wallpapers.com/images/featured/the-flintstones-pictures-wthl97y7ez0xrnds.webp) [ASP](https://en.wikipedia.org/wiki/Active_Server_Pages) query programs built with *titanic* SQL statements, one of which is around 350 lines, which ran for several SECONDS, not milliseconds... Curiosity urged me to quest for how RDBMS handle it... By dint of `explain plan for SELECT...`, Wow! the *access plan* was 350 lines... This SQL is a whole bunch of shit being entangled with 32 sub-queries... with grouping and sorting etc etc. The problem here is not to do with *What we can* but *What we should*. Crafting SQL statement to this extend is an extremity of abusiveness and obscenity, had promiscuously soiled the chastity and purity of SQL motives, if any...  
+For some unknown reason, I was responsible for maintaining some [Stone Age](https://wallpapers.com/images/featured/the-flintstones-pictures-wthl97y7ez0xrnds.webp) [ASP](https://en.wikipedia.org/wiki/Active_Server_Pages) query programs built with *titanic* SQL statements, one of which is around 3xx lines, which ran for several SECONDS, not milliseconds... Curiosity urged me to quest for how RDBMS handle it... By dint of `explain plan for SELECT...`, Wow! the *access plan* was 3xx lines... This SQL is a whole bunch of shit being entangled with 32 sub-queries... with grouping and sorting etc etc. The problem here is not to do with *What we can* but *What we should*. Crafting SQL statement to this extend is an extremity of abusiveness and obscenity, had promiscuously soiled the chastity and purity of SQL motives, if any...  
 
 As another example, the `dual` table is a special table in **Oracle** that consists of a single row and a single column called "DUMMY". It is commonly used in Oracle queries to perform calculations, retrieve system values, or generate dummy data. There is an equivalent special table called `SYSIBM.SYSDUMMY1` in **IBM DB2 for IBM i** that serves a similar purpose. Only because DBMS can not *join* without table. 
 
 > In SQL systems, you have complex query planners to convert your SQL into internal database retrieval, table scanning, index lookup, and result returning commands.
 
-Redis commands are formidable, cryptical and obfuscated. It has to be practiced repeatedly until you feel comfortable, confidence and content. All and all underlaying philosophy is using minimum resource, in terms of RAM and CPU, to achieve maximum capacity, in terms of concurrency and throughput. 
+Unintelligible... Redis commands are formidable, cryptical and obfuscated. It has to be practiced repeatedly until you feel comfortable, confidence and content. All and all underlaying philosophy is using minimum resource, in terms of RAM and CPU, to achieve maximum capacity, in terms of concurrency and throughput. 
 
 
 ### IV. Reference
