@@ -311,11 +311,13 @@ As you can see, Redis aggregation is purely index based and can not match with t
 ### III. Summary 
 When working with relational database, datatypes such as NUMBER, DECIMAL, CHAR or VARCHAR, is a matter of storage. Access methods remain the same regardless of the encodeing. In Redis, what you think is data structure, not data types. Every data structure has it's own capability and deficiency. Table, as a universal data structure, has been used extensively because it's easy to understand. In scenario like [Pub/Sub](https://redis.io/commands/?group=pubsub), by dint of tables would not be good enough to implement a system with both performance and consistency. 
 
-For some unknown reason, I trod into the waste land of [Stone Age](https://www.imdb.com/title/tt0053502/episodes/) [ASP](https://en.wikipedia.org/wiki/Active_Server_Pages) query programs built with *titanic* SQL statements by notorious fore founder, one of which is around 3xx lines, which ran for several SECONDS, not milliseconds... 
+For some unknown reason, I trod into the waste land of [Stone Age](https://www.imdb.com/title/tt0053502/episodes/) [ASP](https://en.wikipedia.org/wiki/Active_Server_Pages) query programs built with *titanic* SQL statements by notorious fore founder, one of which is around 341 lines, which ran for several SECONDS, not milliseconds... 
 
 ![alt the flit stone](img/the-flintstones-pictures.jpg)
 
-Curiosity urged me to quest for how RDBMS digest it... By dint of `explain plan for SELECT...`, Wow! the *access plan* was 3xx lines... This SQL is a whole bunch of shit being entangled with 32 sub-queries... with grouping and sorting etc etc. The problem here is not to do with *What we can* but *What we should* in devising and implementing monolith by so and so means, in such and such mindset. Crafting SQL statement to this extend is an extremity of abusiveness and obscenity, had promiscuously soiled the chastity and purity of SQL motives, if any...  
+Curiosity urged me to quest for how RDBMS digest it... By dint of `explain plan for SELECT...`, Wow! the *access plan* was 164 lines... This SQL is a whole bunch of shit being entangled with 32 sub-queries... with grouping and sorting etc etc. The problem here is not to do with *What we can* but *What we should* in devising and implementing monolith by so and so means, in such and such mindset. Crafting SQL statement to this extend is an extremity of abusiveness and obscenity, had promiscuously soiled the chastity and purity of SQL motives, if any...  
+
+![alt 341164](img/341164.JPG)
 
 As another example, the `dual` table is a special table in **Oracle** that consists of a single row and a single column called "DUMMY". It is commonly used in Oracle queries to perform calculations, retrieve system values, or generate dummy data. There is an equivalent special table called `SYSIBM.SYSDUMMY1` in **IBM DB2 for IBM i** that serves a similar purpose. Only because DBMS can not *join* without table. 
 
